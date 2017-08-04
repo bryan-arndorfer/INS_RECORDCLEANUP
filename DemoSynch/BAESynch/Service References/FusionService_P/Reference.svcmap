@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e554204d-58a5-44f6-a72c-cd6e514c349c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Phone1.xsd" MetadataType="Schema" ID="a3d0d6a8-ecf2-497d-ab6d-06a726cfe2a4" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Phone.xsd" />
+    <MetadataFile FileName="WorkClass1.xsd" MetadataType="Schema" ID="2cf345b9-9c9a-47b5-babf-0a9c87b8e9cf" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/WorkClass.xsd" />
+    <MetadataFile FileName="PartyPreference1.xsd" MetadataType="Schema" ID="9dbbea51-6a94-4231-8767-45e0a9b1f2e8" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/PartyPreference.xsd" />
+    <MetadataFile FileName="OriginalSystemReference1.xsd" MetadataType="Schema" ID="10a3b806-0617-462f-bc91-0db7d11a6ddd" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/OriginalSystemReference.xsd" />
+    <MetadataFile FileName="CreditRating1.xsd" MetadataType="Schema" ID="e27eac0c-0f31-4b70-809f-98c9ebe0ef00" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/CreditRating.xsd" />
+    <MetadataFile FileName="PersonLanguage1.xsd" MetadataType="Schema" ID="05e83eaf-cd5d-49d7-98ad-3f4071a72d9c" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/PersonLanguage.xsd" />
+    <MetadataFile FileName="Email1.xsd" MetadataType="Schema" ID="c56229b9-8fa1-4967-a363-bb91e50e7157" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Email.xsd" />
+    <MetadataFile FileName="ContactPointInformation1.xsd" MetadataType="Schema" ID="0eddaae2-fab2-455f-891c-3afdd5aa1ed2" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/flex/contactPoint/ContactPointInformation.xsd" />
+    <MetadataFile FileName="PersonService1.xsd" MetadataType="Schema" ID="5af7c5a0-f2b5-448e-af87-595cc7074eb9" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/PersonService.xsd" />
+    <MetadataFile FileName="Relationship1.xsd" MetadataType="Schema" ID="ee45bf44-2198-434e-8a19-0fea2dbae8b3" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/relationshipService/Relationship.xsd" />
+    <MetadataFile FileName="EmailDomain1.xsd" MetadataType="Schema" ID="ac461763-8dce-4f40-b9ef-5b6d7c493342" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/EmailDomain.xsd" />
+    <MetadataFile FileName="OrganizationContactRole1.xsd" MetadataType="Schema" ID="3503a985-5fe8-4a3c-bf06-90f7e5f9d8dd" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/relationshipService/OrganizationContactRole.xsd" />
+    <MetadataFile FileName="Telex1.xsd" MetadataType="Schema" ID="f1b19769-61d7-4c24-a1b5-65bb5782675c" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Telex.xsd" />
+    <MetadataFile FileName="CodeAssignment1.xsd" MetadataType="Schema" ID="4964a364-4067-424e-b897-4e2574d94a6c" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/CodeAssignment.xsd" />
+    <MetadataFile FileName="FinancialProfile1.xsd" MetadataType="Schema" ID="5d4c461e-afea-4ea3-b80e-f8f7487d8b16" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/FinancialProfile.xsd" />
+    <MetadataFile FileName="AdditionalPersonName1.xsd" MetadataType="Schema" ID="3c5ffef7-ff24-43ea-9f21-f4fc40b1400e" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/AdditionalPersonName.xsd" />
+    <MetadataFile FileName="PersonInformation1.xsd" MetadataType="Schema" ID="1e4d2893-a511-4efa-98c2-c224165f6649" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/flex/person/PersonInformation.xsd" />
+    <MetadataFile FileName="BC4JService1.xsd" MetadataType="Schema" ID="84fb736e-1ed2-4b9e-83c2-7a8639421491" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/META-INF/wsdl/BC4JService.xsd" />
+    <MetadataFile FileName="PersonPartySite1.xsd" MetadataType="Schema" ID="a983bde7-5360-4611-9fea-57891cba060d" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/PersonPartySite.xsd" />
+    <MetadataFile FileName="Eft1.xsd" MetadataType="Schema" ID="3b188f80-d272-4211-95a5-6416a6f7a5d7" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Eft.xsd" />
+    <MetadataFile FileName="OrganizationContact1.xsd" MetadataType="Schema" ID="d29d8788-039f-4636-9933-97cc4ec59d7b" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/relationshipService/OrganizationContact.xsd" />
+    <MetadataFile FileName="InstantMessaging1.xsd" MetadataType="Schema" ID="e571d0ff-da0f-4597-bca5-1bdc6720c012" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/InstantMessaging.xsd" />
+    <MetadataFile FileName="ContactPreference1.xsd" MetadataType="Schema" ID="3debe5bf-7ff2-4b52-b0c7-25964bb855f7" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/ContactPreference.xsd" />
+    <MetadataFile FileName="PersonInterest1.xsd" MetadataType="Schema" ID="4b337b72-9029-45d0-b10f-00d9130ce936" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/PersonInterest.xsd" />
+    <MetadataFile FileName="PartySiteInformation1.xsd" MetadataType="Schema" ID="ae355c97-ff26-4ac9-84c7-de20513f6cf1" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/flex/partySite/PartySiteInformation.xsd" />
+    <MetadataFile FileName="OrganizationContactInformation1.xsd" MetadataType="Schema" ID="f28ece08-2c21-4ad0-bc35-8fbb5eec53fa" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/flex/orgContact/OrganizationContactInformation.xsd" />
+    <MetadataFile FileName="Citizenship1.xsd" MetadataType="Schema" ID="b825e24c-b992-436c-a6ec-b5f2c6793405" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/Citizenship.xsd" />
+    <MetadataFile FileName="Web1.xsd" MetadataType="Schema" ID="a94ff958-5d66-4904-98ac-cf921c39fec0" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Web.xsd" />
+    <MetadataFile FileName="sdoJava1.xsd" MetadataType="Schema" ID="5297d2aa-004a-47a4-8466-d2ca8429d2fe" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/xml/sdoJava.xsd" />
+    <MetadataFile FileName="Education1.xsd" MetadataType="Schema" ID="b171f569-fc7e-4469-a4a8-366403e5c968" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/Education.xsd" />
+    <MetadataFile FileName="datagraph1.xsd" MetadataType="Schema" ID="93e682bb-c77b-4de1-b6b9-065ca93db053" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/xml/datagraph.xsd" />
+    <MetadataFile FileName="sdoXML1.xsd" MetadataType="Schema" ID="c4a5133b-9410-4c32-b2eb-f497cba8bcb9" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/xml/sdoXML.xsd" />
+    <MetadataFile FileName="PartySite1.xsd" MetadataType="Schema" ID="098d8931-82d2-4128-b687-10d784fa384a" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/PartySite.xsd" />
+    <MetadataFile FileName="RelationshipInformation1.xsd" MetadataType="Schema" ID="432006a6-02bd-4350-b483-91619db793dd" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/flex/relationship/RelationshipInformation.xsd" />
+    <MetadataFile FileName="BC4JServiceCS1.xsd" MetadataType="Schema" ID="06f2e3d4-645c-4f28-9b03-a54b9a11a66b" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/META-INF/wsdl/BC4JServiceCS.xsd" />
+    <MetadataFile FileName="SourceSystemRefInformation1.xsd" MetadataType="Schema" ID="035c5122-b59a-4710-9fec-d83c5f23b7cb" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/flex/sourceSystemRef/SourceSystemRefInformation.xsd" />
+    <MetadataFile FileName="oracle-webservices-async-fault-11_01.xsd" MetadataType="Schema" ID="ced76210-7656-408a-ba3e-5e1b32c6f595" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/META-INF/oracle-webservices-async-fault-11_0.xsd" />
+    <MetadataFile FileName="sdoModel1.xsd" MetadataType="Schema" ID="62b68922-9bf6-4ad1-96d2-992d3b6f4b6c" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/xml/sdoModel.xsd" />
+    <MetadataFile FileName="PersonService1.wsdl" MetadataType="Wsdl" ID="9d5f6851-cd52-4dea-9d29-c30f4aa27c7b" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?WSDL" />
+    <MetadataFile FileName="Certification1.xsd" MetadataType="Schema" ID="55eb1573-db47-44d5-9bbb-3e9415eb5aa4" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/Certification.xsd" />
+    <MetadataFile FileName="PartySiteUse1.xsd" MetadataType="Schema" ID="0dfe3c7c-a9b5-41ac-9c79-b58325ffa6c1" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/PartySiteUse.xsd" />
+    <MetadataFile FileName="PersonProfile1.xsd" MetadataType="Schema" ID="9ae147b7-9e74-4ac9-8366-2b602a31f9d4" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/PersonProfile.xsd" />
+    <MetadataFile FileName="Person1.xsd" MetadataType="Schema" ID="d61589d2-a229-47a2-a6a2-f07d4f81c781" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/Person.xsd" />
+    <MetadataFile FileName="EmploymentHistory1.xsd" MetadataType="Schema" ID="fe9df343-c723-48b5-a11a-696eda3a496c" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/personService/EmploymentHistory.xsd" />
+    <MetadataFile FileName="ServiceException1.wsdl" MetadataType="Wsdl" ID="482a30b9-e271-423f-9b63-6ac9cca4c052" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?WSDL=/META-INF/wsdl/ServiceException.wsdl" />
+    <MetadataFile FileName="AdditionalPartyId1.xsd" MetadataType="Schema" ID="e185f1b9-9d61-4631-a898-283d1a0f36ef" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/AdditionalPartyId.xsd" />
+    <MetadataFile FileName="PartyUsageAssignment1.xsd" MetadataType="Schema" ID="bc73379e-b5c0-4625-89ea-d874c6537009" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/oracle/apps/cdm/foundation/parties/partyService/PartyUsageAssignment.xsd" />
+    <MetadataFile FileName="ServiceException1.xsd" MetadataType="Schema" ID="9f36447e-1977-410a-b560-66fb8654dbeb" SourceId="1" SourceUrl="https://adc-fap0915-crm.oracledemos.com/foundationParties/PersonService?XSD=/META-INF/wsdl/ServiceException.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

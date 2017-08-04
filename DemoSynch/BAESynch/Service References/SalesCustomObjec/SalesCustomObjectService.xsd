@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://xmlns.oracle.com/apps/sales/custExtn/extnService/types/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/sales/custExtn/extnService/types/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/IntObj1_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-IntObj1_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject7_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject7_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject10_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject10_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject1_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject1_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject4_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject4_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject5_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject5_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject2_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject2_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject3_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CustomObject3_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CreditCommissions_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-CreditCommissions_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/ManagerCalls_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-ManagerCalls_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/RewardsProgram_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-RewardsProgram_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/EnrollmentFeePayments_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-EnrollmentFeePayments_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/OneForceQuotes_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-OneForceQuotes_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/SalesLog_c.xsd" xml:id="oramds--sessiondef-oracle-apps-sales-custExtn-views-common-SalesLog_c-xsd" namespace="/oracle/apps/sales/custExtn/views/common/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <element name="createEntity">
+    <complexType>
+      <sequence>
+        <element name="object" type="anyType" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createEntityResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="anyType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getEntity">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="keyValue" type="string" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getEntityResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="anyType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateEntity">
+    <complexType>
+      <sequence>
+        <element name="object" type="anyType" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateEntityResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="anyType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deleteEntity">
+    <complexType>
+      <sequence>
+        <element name="object" type="anyType" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deleteEntityResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="findEntity">
+    <complexType>
+      <sequence>
+        <element name="findCriteria" type="ns0:FindCriteria" />
+        <element name="findControl" type="ns0:FindControl" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findEntityResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="anyType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergeEntity">
+    <complexType>
+      <sequence>
+        <element name="object" type="anyType" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergeEntityResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="anyType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="processEntity">
+    <complexType>
+      <sequence>
+        <element name="changeOperation" type="string" />
+        <element minOccurs="0" maxOccurs="unbounded" name="object" type="anyType" />
+        <element name="processControl" type="ns0:ProcessControl" />
+        <element name="objectName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="processEntityResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="anyType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getDfltObjAttrHints">
+    <complexType>
+      <sequence>
+        <element name="viewName" type="string" />
+        <element name="localeName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getDfltObjAttrHintsResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:ObjAttrHints" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getServiceLastUpdateTime">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getServiceLastUpdateTimeResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:dateTime-Timestamp" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getEntityList">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getEntityListResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="ns0:ServiceViewInfo" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

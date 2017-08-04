@@ -1,0 +1,1077 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A7347CC-CD36-4B43-B811-8B3F26F908B3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BAESynch</RootNamespace>
+    <AssemblyName>BAESynch</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FileHelpers">
+      <HintPath>..\..\..\..\..\Google Drive\BAE\Incident-Upload4\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers.ExcelStorage">
+      <HintPath>..\..\..\..\..\Google Drive\BAE\Incident-Upload4\FileHelpers.ExcelStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="FusionApplicationAccelerator">
+      <HintPath>..\..\FusionApplicationAccelerator\FusionApplicationAccelerator\bin\Debug\FusionApplicationAccelerator.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\FusionPartnerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FusionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FusionService_O\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FusionService_P\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RNTService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SalesCustomObjec\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\FusionPartnerService\AdditionalOrganizationName.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\AdditionalPartyId.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\AdditionalPersonName.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.activatePartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.approvePartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.convertToPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.createPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerAccountResourceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerCertificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerExpertisesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerGeographyServedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerIndustryServedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerPhoneResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerProductSpecialityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.deletePartnerWebResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.findPartnerContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.findPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getDfltObjAttrHintsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getEntityListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getPartnerAdministratorUserNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getPartnerContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getProfileOptionValueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getRootResourceIdForthePartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.getServiceLastUpdateTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.makeContactPrimaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.mergePartnerContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.mergePartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.ObjAttrHints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.Partner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.PartnerMember.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.PartnerResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.provisionPartnerMemberAsResourceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.provisionResourceAsUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.raisePartnerPublicEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.ServiceMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.ServiceViewInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.setPartnerAccountOwnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.terminatePartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.updatePartnerContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.updatePartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.updateResourceManagerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BAESynch.FusionPartnerService.updateResourceOrganizationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionPartnerService\BC4JService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Certification.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Citizenship.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\CodeAssignment.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\ContactPointInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\ContactPreference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\CreditRating.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\datagraph.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Edi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Education.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Eft.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Email.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\EmailDomain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\EmploymentHistory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\FinancialNumber.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\FinancialProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\FinancialReport.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\InstantMessaging.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Location.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\LocationInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\LocationLocale.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\LocationProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\oracle-webservices-async-fault-11_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OrganizationContact.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OrganizationContactInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OrganizationContactRole.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OrganizationInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OrganizationParty.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OrganizationProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\OriginalSystemReference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Partner.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerAccountResource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerCertification.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerDimensionMember.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerExpertise.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerGeographyServed.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerIndustryServed.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerMember.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerProductSpeciality.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerProfileMultivalueLov.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerPublicContact.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerPublicEmail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerPublicPhone.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerService.wsdl" />
+    <None Include="Service References\FusionPartnerService\PartnerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartnerTypeDimensionMember.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartyPreference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartySite.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartySiteInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartySiteUse.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PartyUsageAssignment.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Person.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PersonInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PersonInterest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PersonLanguage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PersonPartySite.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\PersonProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Phone.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Relationship.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\RelationshipInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\sdoJava.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\sdoModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\sdoXML.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\ServiceException.wsdl" />
+    <None Include="Service References\FusionPartnerService\ServiceException.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\SourceSystemRefInformation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Telex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\Web.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionPartnerService\WorkClass.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\Account.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\AccountService.wsdl" />
+    <None Include="Service References\FusionService\AccountService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\BAESynch.FusionService.DataObjectResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService\BAESynch.FusionService.ObjAttrHints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService\BAESynch.FusionService.ProcessData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService\BAESynch.FusionService.ServiceMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService\BAESynch.FusionService.ServiceViewInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService\BC4JService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\BC4JServiceCS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\datagraph1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\Note.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\NoteDFF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\oracle-webservices-async-fault-11_01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\PrimaryAddress.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\SalesTeamMember.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\sdoJava1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\sdoModel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\sdoXML1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService\ServiceException1.wsdl" />
+    <None Include="Service References\FusionService\ServiceException1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\BAESynch.FusionService_O.CommonAttachments.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_O\BAESynch.FusionService_O.DeleteEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_O\BAESynch.FusionService_O.ObjAttrHints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_O\BAESynch.FusionService_O.Opportunity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_O\BAESynch.FusionService_O.ProcessData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_O\BAESynch.FusionService_O.ServiceViewInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_O\BC4JService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\BC4JServiceCS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\CategorySummaryRevenue1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\CommonAttachments1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\datagraph1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\DeleteEntity1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\DeleteError1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\Note1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\NoteDFF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\Opportunity1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityCompetitor1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityContact1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityDeal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityLead1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityReference1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityResource1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityResponse1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunityService1.wsdl" />
+    <None Include="Service References\FusionService_O\OpportunityService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\OpportunitySource1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\oracle-webservices-async-fault-11_01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\RecurringRevenue1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\Revenue1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\RevenueLineSet1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\RevenuePartner1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\RevenueTerritory1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\sdoJava1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\sdoModel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\sdoXML1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\ServiceException1.wsdl" />
+    <None Include="Service References\FusionService_O\ServiceException1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\SplitRevenue1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\SWQuote_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\TransientAppointment1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\TransientAssignee1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\TransientCategory1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\TransientContact1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_O\TransientNote1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\AdditionalPartyId1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\AdditionalPersonName1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.ObjAttrHints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.Person.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.PersonProfile.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.PersonResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.ProcessData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.ServiceMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BAESynch.FusionService_P.ServiceViewInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FusionService_P\BC4JService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\BC4JServiceCS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Certification1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Citizenship1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\CodeAssignment1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\ContactPointInformation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\ContactPreference1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\CreditRating1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\datagraph1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Education1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Eft1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Email1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\EmailDomain1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\EmploymentHistory1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\FinancialProfile1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\InstantMessaging1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\oracle-webservices-async-fault-11_01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\OrganizationContact1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\OrganizationContactInformation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\OrganizationContactRole1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\OriginalSystemReference1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PartyPreference1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PartySite1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PartySiteInformation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PartySiteUse1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PartyUsageAssignment1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Person1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PersonInformation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PersonInterest1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PersonLanguage1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PersonPartySite1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PersonProfile1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\PersonService1.wsdl" />
+    <None Include="Service References\FusionService_P\PersonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Phone1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Relationship1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\RelationshipInformation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\sdoJava1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\sdoModel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\sdoXML1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\ServiceException1.wsdl" />
+    <None Include="Service References\FusionService_P\ServiceException1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\SourceSystemRefInformation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Telex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\Web1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FusionService_P\WorkClass1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.BatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.BatchResponseItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.ConvertGenericToObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.ConvertObjectToGenericResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.CreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.CSVTableSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.DestroyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.ExecuteMarketingFlowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetFileDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetMetaDataForClassResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetMetaDataLastChangeTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetMetaDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetValuesForNamedIDHierarchyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.GetValuesForNamedIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.MetaDataClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.NamedID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.NamedIDWithParent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.QueryCSVResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.QueryObjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.QueryResultData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.ResetContactPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.RNObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.RunAnalyticsReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.SendMailingToContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.TransferSubObjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\BAESynch.RNTService.UpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RNTService\RightNow1.wsdl" />
+    <None Include="Service References\RNTService\soap7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\soap71.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\soap72.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\soap73.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\soap74.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\soap75.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNTService\soap76.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.createEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.deleteEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.findEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.getDfltObjAttrHintsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.getEntityListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.getEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.getServiceLastUpdateTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.mergeEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.ObjAttrHints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.processEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.ServiceViewInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BAESynch.SalesCustomObjec.updateEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalesCustomObjec\BC4JService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CreditCommissions_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject10_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject1_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject2_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject3_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject4_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject5_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\CustomObject7_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\datagraph.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\EnrollmentFeePayments_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\IntObj1_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\ManagerCalls_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\OneForceQuotes_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\RewardsProgram_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\SalesCustomObjectService.wsdl" />
+    <None Include="Service References\SalesCustomObjec\SalesCustomObjectService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\SalesLog_c.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\sdoJava.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\sdoModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\sdoXML.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalesCustomObjec\ServiceException.wsdl" />
+    <None Include="Service References\SalesCustomObjec\ServiceException.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FusionPartnerService\" />
+    <WCFMetadataStorage Include="Service References\FusionService\" />
+    <WCFMetadataStorage Include="Service References\FusionService_O\" />
+    <WCFMetadataStorage Include="Service References\FusionService_P\" />
+    <WCFMetadataStorage Include="Service References\RNTService\" />
+    <WCFMetadataStorage Include="Service References\SalesCustomObjec\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RNTService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RNTService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RNTService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService_O\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService_O\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService_O\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService_P\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService_P\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionService_P\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionPartnerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionPartnerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FusionPartnerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalesCustomObjec\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalesCustomObjec\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SalesCustomObjec\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="35963b84-c47d-4192-a0fb-836ddef533b8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NoteDFF.xsd" MetadataType="Schema" ID="c3c12a24-cc07-4c45-bbf2-083ec3ddd6ef" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/oracle/apps/crmCommon/notes/flex/noteDff/NoteDFF.xsd" />
+    <MetadataFile FileName="sdoJava1.xsd" MetadataType="Schema" ID="5da71c74-d174-4524-b363-f054cbbf4135" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/xml/sdoJava.xsd" />
+    <MetadataFile FileName="ServiceException1.wsdl" MetadataType="Wsdl" ID="9460cd1f-be1a-4ce2-ba0d-62e72d5f2b06" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?WSDL=/META-INF/wsdl/ServiceException.wsdl" />
+    <MetadataFile FileName="datagraph1.xsd" MetadataType="Schema" ID="a8fec5fa-1008-4629-bca7-9f7218dc06ec" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/xml/datagraph.xsd" />
+    <MetadataFile FileName="sdoModel1.xsd" MetadataType="Schema" ID="b1b32194-3b6b-4cdc-a187-1d1bd4469240" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/xml/sdoModel.xsd" />
+    <MetadataFile FileName="Account.xsd" MetadataType="Schema" ID="27a47cac-0230-4ffd-8827-a7226bb7d866" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/oracle/apps/crmCommon/salesParties/accountService/Account.xsd" />
+    <MetadataFile FileName="BC4JService1.xsd" MetadataType="Schema" ID="33bdf136-3c5f-475a-9e99-23f1a1cf4af5" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/META-INF/wsdl/BC4JService.xsd" />
+    <MetadataFile FileName="AccountService.wsdl" MetadataType="Wsdl" ID="b48bae3e-5e8e-42bc-a415-04066c37fc58" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?WSDL" />
+    <MetadataFile FileName="sdoXML1.xsd" MetadataType="Schema" ID="31bacd06-a526-47e2-96dd-4e2d75242887" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/xml/sdoXML.xsd" />
+    <MetadataFile FileName="BC4JServiceCS.xsd" MetadataType="Schema" ID="7a1dd1ed-b61b-409b-9a08-2fb779e95d54" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/META-INF/wsdl/BC4JServiceCS.xsd" />
+    <MetadataFile FileName="oracle-webservices-async-fault-11_01.xsd" MetadataType="Schema" ID="0caac6ed-5480-4137-ba28-32d5d7265a1d" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/META-INF/oracle-webservices-async-fault-11_0.xsd" />
+    <MetadataFile FileName="AccountService.xsd" MetadataType="Schema" ID="e7613502-bf60-46c6-886d-0f81d01ea43c" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/oracle/apps/crmCommon/salesParties/accountService/AccountService.xsd" />
+    <MetadataFile FileName="SalesTeamMember.xsd" MetadataType="Schema" ID="20adff04-36d5-49c4-8501-d4e848270f24" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/oracle/apps/crmCommon/salesParties/commonService/SalesTeamMember.xsd" />
+    <MetadataFile FileName="ServiceException1.xsd" MetadataType="Schema" ID="e2911195-68a8-4f75-8533-162f7115d77b" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/META-INF/wsdl/ServiceException.xsd" />
+    <MetadataFile FileName="PrimaryAddress.xsd" MetadataType="Schema" ID="5daa88d6-deb5-400a-8da0-ac6e1e2110b4" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/oracle/apps/crmCommon/salesParties/commonService/PrimaryAddress.xsd" />
+    <MetadataFile FileName="Note.xsd" MetadataType="Schema" ID="6daafa1a-310a-4c29-9b27-7da150e90973" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/crmCommonSalesParties/AccountService?XSD=/oracle/apps/crmCommon/notes/noteService/Note.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

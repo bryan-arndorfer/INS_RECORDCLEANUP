@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:sdoJava="commonj.sdo/java" xmlns:sdoXML="commonj.sdo/xml" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoXML.xsd" namespace="commonj.sdo/xml" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">Partner Phone</name>
+      <description xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">A phone number for a contact point.</description>
+      <oer:category name="lba" xmlns:oer="http://xmlns.oracle.com/oer">
+        <value xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">PartnerMgmtTop-Partner Management Business Area</value>
+        <value xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">PartnerMgmtTop-Partner Management Business Area :
+                    PartnerCenterCore-Partner Center</value>
+      </oer:category>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="The key for this contact point." name="ContactPointId" />
+        <oer:attribute description="The type of the contact point." name="ContactPointType" />
+        <oer:attribute description="The status for this contact point." name="Status" />
+        <oer:attribute description="The table an instance of this contact point relates to." name="OwnerTableName" />
+        <oer:attribute description="The table an instance of this contact point relates to." name="OwnerTableId" />
+        <oer:attribute description="Data from an originating system." name="OrigSystemReference" />
+        <oer:attribute description="Information regarding the creation of this contact point." name="CreatedByModule" />
+        <oer:attribute description="The purpose of this contact point." name="ContactPointPurpose" />
+        <oer:attribute description="Information about the purpose of this contact point." name="PrimaryByPurpose" />
+        <oer:attribute description="Information regarding the source of this contact point." name="ActualContentSource" />
+        <oer:attribute description="Effective start date." name="StartDate" />
+        <oer:attribute description="Effective end date." name="EndDate" />
+        <oer:attribute description="Relationship key for this contact point." name="RelationshipId" />
+        <oer:attribute description="Indicates how this contact point is used." name="PartyUsageCode" />
+        <oer:attribute description="Key information for this contact point." name="ContactPointValue" />
+        <oer:attribute description="Information on proper calling times." name="PhoneCallingCalendar" />
+        <oer:attribute description="Last time contact point was contacted." name="LastContactDtTime" />
+        <oer:attribute description="Area code prefix for the phone number." name="PhoneAreaCode" />
+        <oer:attribute description="Country code prefix for the phone number." name="PhoneCountryCode" />
+        <oer:attribute description="The phone number" name="PhoneNumber" />
+        <oer:attribute description="The extension of the phone number." name="PhoneExtension" />
+        <oer:attribute description="The type of phone line." name="PhoneLineType" />
+        <oer:attribute description="Unformatted phone number." name="RawPhoneNumber" />
+        <oer:attribute description="The transposed phone number." name="TransposedPhoneNumber" />
+        <oer:attribute description="Type of pager for this phone number." name="PagerTypeCode" />
+        <oer:attribute description="The formatted phone number." name="FormattedPhoneNumber" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="PartnerPublicPhone">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>ContactPointId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element sdoXML:dataType="sdoJava:LongObject" minOccurs="0" name="ContactPointId" type="xsd:long" />
+      <xsd:element minOccurs="0" name="ContactPointType" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Status" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OwnerTableName" type="xsd:string" />
+      <xsd:element sdoXML:dataType="sdoJava:LongObject" minOccurs="0" name="OwnerTableId" type="xsd:long" />
+      <xsd:element minOccurs="0" name="OrigSystemReference" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CreatedByModule" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryByPurpose" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ActualContentSource" type="xsd:string" />
+      <xsd:element minOccurs="0" name="StartDate" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="EndDate" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="RelationshipId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="PartyUsageCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ContactPointValue" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PhoneCallingCalendar" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LastContactDtTime" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="PhoneAreaCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PhoneCountryCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PhoneNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PhoneExtension" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PhoneLineType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RawPhoneNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="TransposedPhoneNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PagerTypeCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="FormattedPhoneNumber" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="partnerPublicPhone" type="PartnerPublicPhone" />
+</xsd:schema>

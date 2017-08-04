@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.oracle.com/apps/sales/custExtn/extnService/" xmlns:types="http://xmlns.oracle.com/apps/sales/custExtn/extnService/types/" name="SalesCustomObjectService" targetNamespace="http://xmlns.oracle.com/apps/sales/custExtn/extnService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+    <name>Sales Custom Business Object</name>
+    <description>A service to create, update, delete, or find custom business objects
+            created in the Oracle Fusion Sales application. A custom business
+            object stores extended information for an Oracle Fusion business
+            object, for example, related orders for a sales opportunity.</description>
+    <docCategories>
+      <category>Integration</category>
+    </docCategories>
+    <oer:lifecycle>Active</oer:lifecycle>
+    <oer:compatibility>Supported - Backward Compatibility Assured</oer:compatibility>
+    <oer:category name="lba">
+      <value>SalesTop-Sales</value>
+      <value>SalesTop-Sales : OpptyMgmtExtensibility-Sales Extensibility</value>
+    </oer:category>
+    <oer:category name="lbo">
+      <value>CRM-CRM : MOO-Opportunity Management :
+                MOO_OPPORTUNITY-Opportunity</value>
+    </oer:category>
+    <oer:operation name="createEntity">
+      <description>Create operation for a custom object.</description>
+      <oer:parameters>
+        <oer:parameter name="object" description="DataObject to be created. The DataObject must include key fields for identifying the created record, as well as the required fields." />
+        <oer:parameter name="objectName" description="Custom object type name." />
+        <oer:return description="DataObject created for the custom object." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getEntity">
+      <description>Get operation for a custom object.</description>
+      <oer:parameters>
+        <oer:parameter name="keyValue" description="A list of key values for identifying the custom object." />
+        <oer:parameter name="objectName" description="Custom object type name." />
+        <oer:return description="DataObject identified by the keyValue." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="updateEntity">
+      <description>Update operation for a custom object.</description>
+      <oer:parameters>
+        <oer:parameter name="object" description="DataObject to be updated. The DataObject must include key fields for identifying the updated record, as well as the fields to be updated." />
+        <oer:parameter name="objectName" description="Custom object type name." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deleteEntity">
+      <description>Delete operation for a custom object.</description>
+      <oer:parameters>
+        <oer:parameter name="object" description="DataObject to be deleted. The DataObject must include key fields for identifying the deleted record." />
+        <oer:parameter name="objectName" description="Custom object type name." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="findEntity">
+      <description>Find operation for a custom object.</description>
+      <oer:parameters>
+        <oer:parameter name="findCriteria" description="List of DataObjects identified by the findCriteria." />
+        <oer:parameter name="findControl" description="Search control." />
+        <oer:parameter name="objectName" description="Search criteria for looking up custom object records." />
+        <oer:return description="Custom object type name." />
+      </oer:parameters>
+    </oer:operation>
+  </wsdl:documentation>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SalesCustomObjectServiceSoapHttpPort_Fault_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All />
+      <wsp:All />
+      <wsp:All />
+      <wsp:All />
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SalesCustomObjectServiceSoapHttpPort_Input_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+          <sp:Header Name="SignatureConfirmation" Namespace="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+          <sp:Header Name="SignatureConfirmation" Namespace="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" />
+          <sp:Header Name="SignatureConfirmation" Namespace="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SalesCustomObjectServiceSoapHttpPort_Output_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="wss11_saml_or_username_token_with_message_protection_service_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:ProtectTokens />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token11 />
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssX509V3Token11 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Exn256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:ProtectTokens />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token11 />
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssX509V3Token11 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Exn256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy />
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token10 />
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy />
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy />
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy>
+                    <osp:HttpJwtAuthentication xmlns:osp="http://schemas.oracle.com/ws/2012/01/wssecuritypolicy" />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?WSDL=/META-INF/wsdl/ServiceException.wsdl" />
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/oracle/apps/sales/custExtn/extnService/SalesCustomObjectService.xsd" namespace="http://xmlns.oracle.com/apps/sales/custExtn/extnService/types/" />
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="SalesCustomObjectService_createEntity">
+    <wsdl:part name="parameters" element="types:createEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_createEntityResponse">
+    <wsdl:part name="parameters" element="types:createEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getEntity">
+    <wsdl:part name="parameters" element="types:getEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getEntityResponse">
+    <wsdl:part name="parameters" element="types:getEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_updateEntity">
+    <wsdl:part name="parameters" element="types:updateEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_updateEntityResponse">
+    <wsdl:part name="parameters" element="types:updateEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_deleteEntity">
+    <wsdl:part name="parameters" element="types:deleteEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_deleteEntityResponse">
+    <wsdl:part name="parameters" element="types:deleteEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_findEntity">
+    <wsdl:part name="parameters" element="types:findEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_findEntityResponse">
+    <wsdl:part name="parameters" element="types:findEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_mergeEntity">
+    <wsdl:part name="parameters" element="types:mergeEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_mergeEntityResponse">
+    <wsdl:part name="parameters" element="types:mergeEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_processEntity">
+    <wsdl:part name="parameters" element="types:processEntity" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_processEntityResponse">
+    <wsdl:part name="parameters" element="types:processEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getDfltObjAttrHints">
+    <wsdl:part name="parameters" element="types:getDfltObjAttrHints" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getDfltObjAttrHintsResponse">
+    <wsdl:part name="parameters" element="types:getDfltObjAttrHintsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getServiceLastUpdateTime">
+    <wsdl:part name="parameters" element="types:getServiceLastUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getServiceLastUpdateTimeResponse">
+    <wsdl:part name="parameters" element="types:getServiceLastUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getEntityList">
+    <wsdl:part name="parameters" element="types:getEntityList" />
+  </wsdl:message>
+  <wsdl:message name="SalesCustomObjectService_getEntityListResponse">
+    <wsdl:part name="parameters" element="types:getEntityListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SalesCustomObjectService">
+    <wsdl:documentation />
+    <wsdl:operation name="createEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_createEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_createEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_getEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_getEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_updateEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_updateEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_deleteEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_deleteEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="findEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_findEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_findEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="mergeEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_mergeEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_mergeEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="processEntity">
+      <wsdl:input message="tns:SalesCustomObjectService_processEntity" />
+      <wsdl:output message="tns:SalesCustomObjectService_processEntityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHints">
+      <wsdl:input message="tns:SalesCustomObjectService_getDfltObjAttrHints" />
+      <wsdl:output message="tns:SalesCustomObjectService_getDfltObjAttrHintsResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTime">
+      <wsdl:input message="tns:SalesCustomObjectService_getServiceLastUpdateTime" />
+      <wsdl:output message="tns:SalesCustomObjectService_getServiceLastUpdateTimeResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntityList">
+      <wsdl:input message="tns:SalesCustomObjectService_getEntityList" />
+      <wsdl:output message="tns:SalesCustomObjectService_getEntityListResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesCustomObjectServiceSoapHttp" type="tns:SalesCustomObjectService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#wss11_saml_or_username_token_with_message_protection_service_policy" wsdl:required="false" />
+    <wsdl:operation name="createEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/createEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/getEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/updateEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/deleteEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/findEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mergeEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/mergeEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="processEntity">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/processEntity" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHints">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/getDfltObjAttrHints" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTime">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/getServiceLastUpdateTime" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityList">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/sales/custExtn/extnService/getEntityList" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#SalesCustomObjectServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesCustomObjectService">
+    <wsdl:port name="SalesCustomObjectServiceSoapHttpPort" binding="tns:SalesCustomObjectServiceSoapHttp">
+      <soap:address location="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService" />
+      <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsa:Address xmlns:wsa="http://www.w3.org/2005/08/addressing">https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService</wsa:Address>
+        <wsid:Identity xmlns:wsid="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <dsig:KeyInfo xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+            <dsig:X509Data>
+              <dsig:X509Certificate>MIIDVzCCAj+gAwIBAgIIVg/+Q6HleUswDQYJKoZIhvcNAQELBQAwWTETMBEGCgmSJomT8ixkARkWA2NvbTEWMBQGCgmSJomT8ixkARkWBm9yYWNsZTEVMBMGCgmSJomT8ixkARkWBWNsb3VkMRMwEQYDVQQDEwpDbG91ZDlDQS0yMB4XDTE2MDUyMTAyMTgxMVoXDTI2MDUxOTAyMTgxMVowWzETMBEGCgmSJomT8ixkARkWA2NvbTEWMBQGCgmSJomT8ixkARkWBm9yYWNsZTEVMBMGCgmSJomT8ixkARkWBWNsb3VkMRUwEwYDVQQDEwxGQUVuY3J5cHRpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCXkkCRaPrzPLVxYvo6yqAMrcduV0+Ghq6NCdXAhKdbAXkc6yfFJPpYKDTEooxEUVZUkcfzZ+N3kJq6fTcQifkHPhobN5SHHSAprBWTrwDPjuQtrOC+NxB4wb02tQD/RV722MaUmzIVUrxEcY4hr0SADaqTT+4kvGysNwfxBRrRACs3fY3B41B6qL85ZiWq5GBUdjqEJqpdCWKa2fYiRDDiWXQcGwf3HNETR1QMi20/HjUSwURZLAUoGZAvLpnc9Va5WD3VKfpQ+BME6gs/jCuKKKd5lzm1sn08rT+H7vbT8JfkHL4sbHMhTgSV7HVh7SCOeLY5/kyLmcDxGpAEWEs/AgMBAAGjITAfMB0GA1UdDgQWBBRe0RelArN2TGMOMSDshZ/yxiLr/jANBgkqhkiG9w0BAQsFAAOCAQEArJa3QUFptgahgBUHiXQ0Xsl1yGHgp7x0RqYUVFuIId3ojpASaN1hWY7Ze7gUC7yELqDj/w+z9fXa7ce7S9tMbPL82/pvoh48N8kEOeCkvFrww+XCKu0ywbjNKzejsl4hWr6t0Ej1cZ2cBrzz0V42acUBwtIDeRBD0VWffA0EEF9uRyOByErHg5yAcl+2n6vnwvhRHMRNNXn2r2ueRyu+nKKl3upWijgJDiWHcaCXZf/HCju1XgnZV+g5t4//R2dDMoBzhWqY9rIcO+7yYFGwyADrao0NqwQk9Vco4KC3I4fWyi+EZalBCUx31sMhTYopy5qOqnlWsCVd/6g75ce9DA==</dsig:X509Certificate>
+              <dsig:X509IssuerSerial>
+                <dsig:X509IssuerName>CN=Cloud9CA-2, DC=cloud, DC=oracle, DC=com</dsig:X509IssuerName>
+                <dsig:X509SerialNumber>6201454778344896843</dsig:X509SerialNumber>
+              </dsig:X509IssuerSerial>
+              <dsig:X509SubjectName>CN=FAEncryption, DC=cloud, DC=oracle, DC=com</dsig:X509SubjectName>
+              <dsig:X509SKI>XtEXpQKzdkxjDjEg7IWf8sYi6/4=</dsig:X509SKI>
+              <dsig:X509Certificate>MIIDazCCAlOgAwIBAgIIMdQl7kIMrv0wDQYJKoZIhvcNAQELBQAwWTETMBEGCgmSJomT8ixkARkWA2NvbTEWMBQGCgmSJomT8ixkARkWBm9yYWNsZTEVMBMGCgmSJomT8ixkARkWBWNsb3VkMRMwEQYDVQQDEwpDbG91ZDlDQS0yMCAXDTE2MDUyMTAyMTgwOVoYDzIxMTYwNDI3MDIxODA5WjBZMRMwEQYKCZImiZPyLGQBGRYDY29tMRYwFAYKCZImiZPyLGQBGRYGb3JhY2xlMRUwEwYKCZImiZPyLGQBGRYFY2xvdWQxEzARBgNVBAMTCkNsb3VkOUNBLTIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDPZn2VAoMsIfWmIJks9exzK+DXaX6qYyBc12dRqDrRpC48v3CBeBchV/GT2E+mjcDp8Hzq8oIpwr9W5kwMja4PU3SPd4/0LB6WKbtLfHOnJxLg9EaT992UpbUGHaHlEq4oRAuVvPgDLp5sSspLZYEBKUh4vJXOyLitE1qsXn7mJNXRKTJZvrJKdfbs1dyTge3V3wk1rwY/wCWMKVgkqCgSzzWCGju8EZWoOrnzlR6BHkA0qZqeV4F7jDW8ucdv+Y20pOlOiaEbIg/ZFYGrZd5VWjlNvgLfU8P4C/YJLSkkcPHgoet3w4jI0S26efu59rVzgU9VsKnKtnqbDL99t81vAgMBAAGjNTAzMBIGA1UdEwEB/wQIMAYBAf8CAQAwHQYDVR0OBBYEFDMA8e55FI5kC12+guIE9xtcIXpFMA0GCSqGSIb3DQEBCwUAA4IBAQC45tOVeqHxA8Bo/Rnv1SHHpULge3HyTC1XV9nmUdrj6g/U6rmbA5hVJ5LshgQ77qopO/YsaNHj5Ru1u/+8VOlZWpbn+kt3CDOuBUCe89CKBZT/KWEDkvtNl2qu16gOkhFnuTQk8NsARvwZZ6KtyPDmsbW4Nc/I5fKwPhdTaMjCV6Lh9RCG4kU77lbdwY3SaXlCBXXQyfPWMouCi7z1thJaF3cNGW4tnsibMR5ej9fJ9j6UvShxNgAIgjNDoihPlC6k0kW3QDR3bBjCHJX47505aIhckojH/eKsP2Or0eE/Ma4WNbndj0IXPE2ae5AVmC8/GRtwAmnoZPnt3g/I2m5j</dsig:X509Certificate>
+            </dsig:X509Data>
+          </dsig:KeyInfo>
+        </wsid:Identity>
+      </wsa:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

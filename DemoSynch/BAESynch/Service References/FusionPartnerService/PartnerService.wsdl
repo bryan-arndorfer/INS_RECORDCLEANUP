@@ -1,0 +1,2767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:types="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/types/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:orafault="http://xmlns.oracle.com/oracleas/schema/oracle-fault-11_0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/" name="PartnerService" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+    <name>Partner Service</name>
+    <description>A service to get or update partner information using a partner
+            identifier. A partner is defined as an external organization that
+            works with a vendor as an agent or reseller.</description>
+    <docCategories>
+      <category>External</category>
+      <category>Other</category>
+    </docCategories>
+    <oer:lifecycle>Active</oer:lifecycle>
+    <oer:compatibility>Supported - Backward Compatibility Assured</oer:compatibility>
+    <keywords>
+      <value>Partner</value>
+    </keywords>
+    <oer:category name="lba">
+      <value>PartnerMgmtTop-Partner Management Business Area :
+                PartnerCenterCore-Partner Center</value>
+    </oer:category>
+    <oer:category name="lbo">
+      <value>CRM-CRM : ZPM-Partner Management : ZPM_PARTNER-Partner</value>
+    </oer:category>
+    <oer:operation name="getPartner">
+      <description>Use this operation to query partner profile information using a
+                party id of the partner account.</description>
+      <oer:parameters>
+        <oer:parameter name="partyId" description="A party id of a partner account." />
+        <oer:return description="Partner that matches the inbound key attributes." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="updatePartner">
+      <description>Use this operation to update partner profile information. This
+                operation takes a partner object that contains party id of a
+                partner account and new partner profile values for update.</description>
+      <oer:parameters>
+        <oer:parameter name="partner" description="A partner object that contains party id of a partner account that the partner service updates. This partner object also contains the partner profile attributes and their corresponding new values that the partner service uses for update." />
+        <oer:return description="Result of the operation includes the successfully updated Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getProfileOptionValue">
+      <description>Returns the Profile option Value for given Profile Option</description>
+      <oer:parameters>
+        <oer:parameter name="profileOption" description="Profile Option Category" />
+        <oer:return description="Profile Option Value" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerCertification">
+      <description>Deletes Certification  for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerCertification" description="A Partner Certification Object containing PartnerMultivalLovId which has to deleted." />
+        <oer:return description="Result of the operation includes list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="activatePartner">
+      <description>Activates the regsitered Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partyId" description="A party id of a partner account." />
+        <oer:return description="Result of the operation includes the successfully updated Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="approvePartner">
+      <description>Approves the Prospective Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partyId" description="A party id of a partner account." />
+        <oer:return description="Result of the operation includes the successfully updated Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="terminatePartner">
+      <description>Terminates the Regsitered Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partyId" description="A party id of a partner account." />
+        <oer:return description="Result of the operation includes the successfully updated Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="findPartner">
+      <description>Queries a group of partners based on filter criteria.</description>
+      <oer:parameters>
+        <oer:parameter name="findCriteria" description="FindCriteria Object containing the Criteria based on which Partner Serach is performed" />
+        <oer:parameter name="findControl" description="FindControl object" />
+        <oer:return description="Returns List of Partner matching the creteria." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerExpertises">
+      <description>Deletes Expertise Dimension for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerExpertises" description="A Partner Expertise Object containing party id of Partner for whom Partner Service creates Expertise and Expertise Code like Computer Hardware etc." />
+        <oer:return description="Result of the operation includes list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerGeographyServed">
+      <description>Deletes Geography Served Dimension for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerGeographyServed" description="A Partner Geography Served Dimension Object containing Id of the geography dimension which needs to be deleted." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerIndustryServed">
+      <description>Deletes Industry Served Dimension for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerIndustryServed" description="Industry Served Dimension for the Partner." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerProductSpeciality">
+      <description>Deletes Product Speciality Dimension for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerProductSpeciality" description="A Partner Product Speciality Object containing Id of the Product dimension which needs to be deleted." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="provisionResourceAsUser">
+      <description>Provision resource as a user. Create ldap request and roles</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="Party id for the partner" />
+        <oer:parameter name="partnerMemberId" description="Party Id for the member" />
+        <oer:parameter name="autoProvisionRoles" description="true if role provisioning is required" />
+        <oer:return description="partnerMemberId if resource creation is successfull" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="provisionPartnerMemberAsResource">
+      <description>Provision partner member as a Resource</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="PartyId of the partner" />
+        <oer:parameter name="partnerMemberId" description="PartyId of the partner" />
+        <oer:parameter name="roleName" description="Role to be assigned to the member" />
+        <oer:parameter name="mgrId" description="Party Id of the member Manager" />
+        <oer:parameter name="orgName" description="Required if the role is  a managerial role" />
+        <oer:return description="partnerMemberId if resource creation is successfull" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getRootResourceIdForthePartner">
+      <description>Returns the root resource id for a Partner</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="PartyId for the partner" />
+        <oer:return description="PartyId for the root resource" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerAccountResource">
+      <description>Deletes Resource from Partner Account Team.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerAccountResource" description="A Partner Account Resource Object containing PartnerAccountResourceId which has to deleted. Note:Account Director can't be deleted from this service operation." />
+        <oer:return description="Result of the operation includes list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerType">
+      <description>Deletes Partner Type Dimension for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerType" description="Partner Type Dimension for the Partner." />
+        <oer:return description="Result of the operation includes  list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerWeb">
+      <description>Deletes Web deatils for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerWeb" description="A Partner Web Object containing ContactPointId which has to deleted." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerPhone">
+      <description>Deletes Phone deatils for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPhone" description="A Partner Phone Object containing ContactPointId which has to deleted." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerEmail">
+      <description>Deletes Email deatils for the Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="partnerEmail" description="A Partner Email Object containing ContactPointId which has to deleted." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="convertToPartner">
+      <description>Converts existing Organization to Partner.</description>
+      <oer:parameters>
+        <oer:parameter name="orgPartyId" description="Organization Party Id require for newly converted Partner." />
+        <oer:return description="Result of the operation includes the successfully updated Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="updateResourceManager">
+      <description>Updates the manager for the resource</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="Partner PartyId" />
+        <oer:parameter name="partnerMemberId" description="Member PartyId" />
+        <oer:parameter name="managerPartyId" description="Manager PartyId" />
+        <oer:return description="partnerMemberId" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="updateResourceOrganization">
+      <description>Updates the organization for the resource if he is a Manager</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="Partner PartyId" />
+        <oer:parameter name="partnerMemberId" description="Member PartyId" />
+        <oer:parameter name="orgName" description="Organization Name" />
+        <oer:return description="partnerMemberId" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="deletePartnerMember">
+      <description>Deletes Partner Member for the Partner</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="Partner PartyId" />
+        <oer:parameter name="partnerMemberId" description="Member PartyId" />
+        <oer:return description="partnerMemberId if successfull" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="createPartner">
+      <description>Creates Partner with Primary Location Details</description>
+      <oer:parameters>
+        <oer:parameter name="orgParty" description="A OrgParty object contains details Organization details like OrganizationName, Org Email etc" />
+        <oer:parameter name="primaryLocation" description="A Location object contains details Address details of Partner " />
+        <oer:parameter name="partner" description="A partner object contains the partner profile attributes and their corresponding new values that the partner service uses. " />
+        <oer:return description="Result of the operation includes the successfully create Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="makeContactPrimary">
+      <description>Make the specified contact as Primary for Partner</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="Party Id for the partner" />
+        <oer:parameter name="partnerMemberId" description="Party Id for the partner member" />
+        <oer:return description="Party Id of the primary partner contact" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="setPartnerAccountOwner">
+      <description>Set the partner account owner for the partner</description>
+      <oer:parameters>
+        <oer:parameter name="partnerPartyId" description="PartyId for the partner" />
+        <oer:parameter name="resourceId" description="Resource id for the partner contact" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="mergePartner">
+      <description>Use this operation to update partner profile information. This
+                operation takes a partner object that contains party id of a
+                partner account and new partner profile values for update. You
+                can add Account 
+Resource, Contact Points like Email,Phone,Web etc ,Partner Dimensions like
+                Geography,Industry Served, Product Speciality.etc</description>
+      <oer:parameters>
+        <oer:parameter name="partner" description="A partner object that contains party id of a partner account that the partner service updates. This partner object also contains the partner profile attributes and their corresponding new values that the partner service uses for update." />
+        <oer:return description="Result of the operation includes the successfully updated Partner and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getPartnerAdministratorUserName">
+      <description>Retrieves the administrator name for the Partner</description>
+      <oer:parameters>
+        <oer:parameter name="partnerId" description="PartnerPartyId of the Partner" />
+        <oer:return description="The user name of the partner administrators of the partner company" />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getDfltObjAttrHints">
+      <description>An operation to retrieve user interface hints, such as the
+                service data object label and object attribute labels, for the
+                specified service data object and locale. As a prerequisite,
+                invoke the getEntityList operation defined on this service to
+                get the list of possible values for the viewName request payload
+                element.</description>
+      <oer:parameters>
+        <oer:parameter name="viewName" description="The service view usage name, an internal name for the service data object. Specify the value of the &lt;name&gt; element from the getEntityList operation response payload." />
+        <oer:parameter name="localeName" description="The locale to use when evaluating locale-based user interface hints. The localeName is in ISO 639-1 format." />
+        <oer:return description="The label and user interface hints for the specified service data object and its attributes in a name-value pair format." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getServiceLastUpdateTime">
+      <description>An operation that returns the date and time when the schema
+                files referenced in the service definition last changed.</description>
+      <oer:parameters>
+        <oer:return description="The date and time when the service definition last changed in ISO 8601 format." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getEntityList">
+      <description>An operation to get the list of service data objects defined on
+                this service.</description>
+      <oer:parameters>
+        <oer:return description="A list of service data objects defined on this service. For each service data object, the result includes the QName, internal name, and Boolean values indicating whether create, update, merge, and delete operations can be performed on the object." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="getPartnerContact">
+      <description>Use this operation to query Partner Contact information using a
+                party id of the Person Record.</description>
+      <oer:lifecycle>Active</oer:lifecycle>
+      <oer:parameters>
+        <oer:parameter name="partyId" description="PartyId of Partner Contact Person Record" />
+        <oer:return description="Partner Contact that matches the inbound key attributes." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="updatePartnerContact">
+      <description>Use this operation to update partner Contact information. This operation takes a partner Contact object that contains Party id of a partner Contact and new partner Contact Attribute values for update.</description>
+      <oer:lifecycle>Active</oer:lifecycle>
+      <oer:parameters>
+        <oer:parameter name="partnerContact" description="A partner Contact object that contains party id of a partner Contact. This partner Contact object also contains the Partner Contact attributes and their corresponding new values that the Partner Contact service uses for update." />
+        <oer:return description="Result of the operation includes the successfully updated Partner Contact and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="mergePartnerContact">
+      <description>Use this operation to merge Partner Contact information. This operation takes a Partner Contact object that contains party id of a Partner Contact and new Partner Contact values for merge.</description>
+      <oer:lifecycle>Active</oer:lifecycle>
+      <oer:parameters>
+        <oer:parameter name="partnerContact" description="A partner Contact object that contains party id of a Partner Contact. This partner Contact object also contains the Partner Contact attributes and their corresponding new values that the Partner Contact service uses for merge." />
+        <oer:return description="Result of the operation includes the successfully updated Partner Contact and/or a list of warnings or informational messages." />
+      </oer:parameters>
+    </oer:operation>
+    <oer:operation name="findPartnerContact">
+      <description>Queries a group of Partner Contacts based on filter criteria.</description>
+      <oer:lifecycle>Active</oer:lifecycle>
+      <oer:parameters>
+        <oer:parameter name="findCriteria" description="FindCriteria Object containing the Criteria based on which Partner Contact Search is performed" />
+        <oer:parameter name="findControl" description="FindControl object" />
+        <oer:return description="Returns List of Partner Contact matching the creteria." />
+      </oer:parameters>
+    </oer:operation>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="PartnerService">
+    <plnk:role name="PartnerServiceProvider">
+      <plnk:portType name="tns:PartnerService" />
+    </plnk:role>
+    <plnk:role name="PartnerServiceRequestor">
+      <plnk:portType name="tns:PartnerServiceResponse" />
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="PartnerServiceResponse_Fault_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" />
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="PartnerServiceResponse_Input_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <sp:Body />
+      <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+      <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+      <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+    </sp:SignedParts>
+    <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <sp:Body />
+      <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+    </sp:EncryptedParts>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="PartnerServiceResponse_Output_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <sp:Body />
+    </sp:SignedParts>
+    <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <sp:Body />
+    </sp:EncryptedParts>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="PartnerServiceSoapHttpPort_Fault_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All />
+      <wsp:All />
+      <wsp:All />
+      <wsp:All />
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="PartnerServiceSoapHttpPort_Input_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0" />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="PartnerServiceSoapHttpPort_Output_Policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="wsaddr_policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" />
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="wss11_saml_or_username_token_with_message_protection_service_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:ProtectTokens />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token11 />
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssX509V3Token11 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Exn256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:ProtectTokens />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token11 />
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssX509V3Token11 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token11 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Exn256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:RequireSignatureConfirmation />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy />
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token10 />
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy />
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy />
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false">
+                  <wsp:Policy>
+                    <osp:HttpJwtAuthentication xmlns:osp="http://schemas.oracle.com/ws/2012/01/wssecuritypolicy" />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="wss11_saml_token_with_message_protection_client_policy">
+    <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <wsp:Policy>
+        <sp:ProtectionToken>
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+              <wsp:Policy>
+                <sp:RequireThumbprintReference />
+                <sp:WssX509V3Token11 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:ProtectionToken>
+        <sp:AlgorithmSuite>
+          <wsp:Policy>
+            <sp:Basic128 />
+          </wsp:Policy>
+        </sp:AlgorithmSuite>
+        <sp:Layout>
+          <wsp:Policy>
+            <sp:Lax />
+          </wsp:Policy>
+        </sp:Layout>
+        <sp:IncludeTimestamp />
+        <sp:ProtectTokens />
+        <sp:OnlySignEntireHeadersAndBody />
+      </wsp:Policy>
+    </sp:SymmetricBinding>
+    <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <wsp:Policy>
+        <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+          <wsp:Policy>
+            <sp:WssSamlV11Token11 />
+          </wsp:Policy>
+        </sp:SamlToken>
+      </wsp:Policy>
+    </sp:SignedSupportingTokens>
+    <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <wsp:Policy>
+        <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+          <wsp:Policy>
+            <sp:WssX509V3Token11 />
+          </wsp:Policy>
+        </sp:X509Token>
+      </wsp:Policy>
+    </sp:EndorsingSupportingTokens>
+    <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+      <wsp:Policy>
+        <sp:RequireSignatureConfirmation />
+        <sp:MustSupportRefEncryptedKey />
+      </wsp:Policy>
+    </sp:Wss11>
+  </wsp:Policy>
+  <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?WSDL=/META-INF/wsdl/ServiceException.wsdl" />
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/META-INF/oracle-webservices-async-fault-11_0.xsd" namespace="http://xmlns.oracle.com/oracleas/schema/oracle-fault-11_0" />
+      <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerService.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/types/" />
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="PartnerService_onFault">
+    <wsdl:part name="parameters" element="orafault:Fault" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:getPartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:updatePartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getProfileOptionValueAsyncResponse">
+    <wsdl:part name="parameters" element="types:getProfileOptionValueAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerCertificationAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerCertificationAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_activatePartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:activatePartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_terminatePartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:terminatePartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_approvePartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:approvePartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:findPartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerExpertisesAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerExpertisesAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerIndustryServedAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerIndustryServedAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerProductSpecialityAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerProductSpecialityAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerGeographyServedAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerGeographyServedAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionPartnerMemberAsResourceAsyncResponse">
+    <wsdl:part name="parameters" element="types:provisionPartnerMemberAsResourceAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionResourceAsUserAsyncResponse">
+    <wsdl:part name="parameters" element="types:provisionResourceAsUserAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getRootResourceIdForthePartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:getRootResourceIdForthePartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerAccountResourceAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerAccountResourceAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerTypeAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerTypeAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerWebAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerWebAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_convertToPartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:convertToPartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerPhoneAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerPhoneAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerEmailAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerEmailAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceOrganizationAsyncResponse">
+    <wsdl:part name="parameters" element="types:updateResourceOrganizationAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerMemberAsyncResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerMemberAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceManagerAsyncResponse">
+    <wsdl:part name="parameters" element="types:updateResourceManagerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_createPartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:createPartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_makeContactPrimaryAsyncResponse">
+    <wsdl:part name="parameters" element="types:makeContactPrimaryAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_setPartnerAccountOwnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:setPartnerAccountOwnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerAsyncResponse">
+    <wsdl:part name="parameters" element="types:mergePartnerAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerAdministratorUserNameAsyncResponse">
+    <wsdl:part name="parameters" element="types:getPartnerAdministratorUserNameAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getDfltObjAttrHintsAsyncResponse">
+    <wsdl:part name="parameters" element="types:getDfltObjAttrHintsAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getEntityListAsyncResponse">
+    <wsdl:part name="parameters" element="types:getEntityListAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getServiceLastUpdateTimeAsyncResponse">
+    <wsdl:part name="parameters" element="types:getServiceLastUpdateTimeAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_raisePartnerPublicEventAsyncResponse">
+    <wsdl:part name="parameters" element="types:raisePartnerPublicEventAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerContactAsyncResponse">
+    <wsdl:part name="parameters" element="types:getPartnerContactAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerContactAsyncResponse">
+    <wsdl:part name="parameters" element="types:mergePartnerContactAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerContactAsyncResponse">
+    <wsdl:part name="parameters" element="types:findPartnerContactAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerContactAsyncResponse">
+    <wsdl:part name="parameters" element="types:updatePartnerContactAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartner">
+    <wsdl:part name="parameters" element="types:getPartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerResponse">
+    <wsdl:part name="parameters" element="types:getPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartner">
+    <wsdl:part name="parameters" element="types:updatePartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerResponse">
+    <wsdl:part name="parameters" element="types:updatePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerAsync">
+    <wsdl:part name="parameters" element="types:getPartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerAsync">
+    <wsdl:part name="parameters" element="types:updatePartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getProfileOptionValue">
+    <wsdl:part name="parameters" element="types:getProfileOptionValue" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getProfileOptionValueResponse">
+    <wsdl:part name="parameters" element="types:getProfileOptionValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getProfileOptionValueAsync">
+    <wsdl:part name="parameters" element="types:getProfileOptionValueAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerCertification">
+    <wsdl:part name="parameters" element="types:deletePartnerCertification" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerCertificationResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerCertificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerCertificationAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerCertificationAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_activatePartner">
+    <wsdl:part name="parameters" element="types:activatePartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_activatePartnerResponse">
+    <wsdl:part name="parameters" element="types:activatePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_approvePartner">
+    <wsdl:part name="parameters" element="types:approvePartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_approvePartnerResponse">
+    <wsdl:part name="parameters" element="types:approvePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_terminatePartner">
+    <wsdl:part name="parameters" element="types:terminatePartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_terminatePartnerResponse">
+    <wsdl:part name="parameters" element="types:terminatePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_activatePartnerAsync">
+    <wsdl:part name="parameters" element="types:activatePartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_terminatePartnerAsync">
+    <wsdl:part name="parameters" element="types:terminatePartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_approvePartnerAsync">
+    <wsdl:part name="parameters" element="types:approvePartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartner">
+    <wsdl:part name="parameters" element="types:findPartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerResponse">
+    <wsdl:part name="parameters" element="types:findPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerAsync">
+    <wsdl:part name="parameters" element="types:findPartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerExpertises">
+    <wsdl:part name="parameters" element="types:deletePartnerExpertises" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerExpertisesResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerExpertisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerExpertisesAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerExpertisesAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerGeographyServed">
+    <wsdl:part name="parameters" element="types:deletePartnerGeographyServed" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerGeographyServedResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerGeographyServedResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerIndustryServed">
+    <wsdl:part name="parameters" element="types:deletePartnerIndustryServed" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerIndustryServedResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerIndustryServedResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerProductSpeciality">
+    <wsdl:part name="parameters" element="types:deletePartnerProductSpeciality" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerProductSpecialityResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerProductSpecialityResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerIndustryServedAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerIndustryServedAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerProductSpecialityAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerProductSpecialityAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerGeographyServedAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerGeographyServedAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionResourceAsUser">
+    <wsdl:part name="parameters" element="types:provisionResourceAsUser" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionResourceAsUserResponse">
+    <wsdl:part name="parameters" element="types:provisionResourceAsUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionPartnerMemberAsResource">
+    <wsdl:part name="parameters" element="types:provisionPartnerMemberAsResource" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionPartnerMemberAsResourceResponse">
+    <wsdl:part name="parameters" element="types:provisionPartnerMemberAsResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getRootResourceIdForthePartner">
+    <wsdl:part name="parameters" element="types:getRootResourceIdForthePartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getRootResourceIdForthePartnerResponse">
+    <wsdl:part name="parameters" element="types:getRootResourceIdForthePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionPartnerMemberAsResourceAsync">
+    <wsdl:part name="parameters" element="types:provisionPartnerMemberAsResourceAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_provisionResourceAsUserAsync">
+    <wsdl:part name="parameters" element="types:provisionResourceAsUserAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getRootResourceIdForthePartnerAsync">
+    <wsdl:part name="parameters" element="types:getRootResourceIdForthePartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerAccountResource">
+    <wsdl:part name="parameters" element="types:deletePartnerAccountResource" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerAccountResourceResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerAccountResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerAccountResourceAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerAccountResourceAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerType">
+    <wsdl:part name="parameters" element="types:deletePartnerType" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerTypeResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerTypeAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerTypeAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerWeb">
+    <wsdl:part name="parameters" element="types:deletePartnerWeb" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerWebResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerPhone">
+    <wsdl:part name="parameters" element="types:deletePartnerPhone" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerPhoneResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerEmail">
+    <wsdl:part name="parameters" element="types:deletePartnerEmail" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerEmailResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_convertToPartner">
+    <wsdl:part name="parameters" element="types:convertToPartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_convertToPartnerResponse">
+    <wsdl:part name="parameters" element="types:convertToPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerWebAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerWebAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_convertToPartnerAsync">
+    <wsdl:part name="parameters" element="types:convertToPartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerPhoneAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerPhoneAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerEmailAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerEmailAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceManager">
+    <wsdl:part name="parameters" element="types:updateResourceManager" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceManagerResponse">
+    <wsdl:part name="parameters" element="types:updateResourceManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceOrganization">
+    <wsdl:part name="parameters" element="types:updateResourceOrganization" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceOrganizationResponse">
+    <wsdl:part name="parameters" element="types:updateResourceOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerMember">
+    <wsdl:part name="parameters" element="types:deletePartnerMember" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerMemberResponse">
+    <wsdl:part name="parameters" element="types:deletePartnerMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceOrganizationAsync">
+    <wsdl:part name="parameters" element="types:updateResourceOrganizationAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_deletePartnerMemberAsync">
+    <wsdl:part name="parameters" element="types:deletePartnerMemberAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updateResourceManagerAsync">
+    <wsdl:part name="parameters" element="types:updateResourceManagerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_createPartner">
+    <wsdl:part name="parameters" element="types:createPartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_createPartnerResponse">
+    <wsdl:part name="parameters" element="types:createPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_createPartnerAsync">
+    <wsdl:part name="parameters" element="types:createPartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_makeContactPrimary">
+    <wsdl:part name="parameters" element="types:makeContactPrimary" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_makeContactPrimaryResponse">
+    <wsdl:part name="parameters" element="types:makeContactPrimaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_makeContactPrimaryAsync">
+    <wsdl:part name="parameters" element="types:makeContactPrimaryAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_setPartnerAccountOwner">
+    <wsdl:part name="parameters" element="types:setPartnerAccountOwner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_setPartnerAccountOwnerResponse">
+    <wsdl:part name="parameters" element="types:setPartnerAccountOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_setPartnerAccountOwnerAsync">
+    <wsdl:part name="parameters" element="types:setPartnerAccountOwnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartner">
+    <wsdl:part name="parameters" element="types:mergePartner" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerResponse">
+    <wsdl:part name="parameters" element="types:mergePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerAsync">
+    <wsdl:part name="parameters" element="types:mergePartnerAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerAdministratorUserName">
+    <wsdl:part name="parameters" element="types:getPartnerAdministratorUserName" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerAdministratorUserNameResponse">
+    <wsdl:part name="parameters" element="types:getPartnerAdministratorUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerAdministratorUserNameAsync">
+    <wsdl:part name="parameters" element="types:getPartnerAdministratorUserNameAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getDfltObjAttrHints">
+    <wsdl:part name="parameters" element="types:getDfltObjAttrHints" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getDfltObjAttrHintsResponse">
+    <wsdl:part name="parameters" element="types:getDfltObjAttrHintsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getServiceLastUpdateTime">
+    <wsdl:part name="parameters" element="types:getServiceLastUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getServiceLastUpdateTimeResponse">
+    <wsdl:part name="parameters" element="types:getServiceLastUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getEntityList">
+    <wsdl:part name="parameters" element="types:getEntityList" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getEntityListResponse">
+    <wsdl:part name="parameters" element="types:getEntityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getDfltObjAttrHintsAsync">
+    <wsdl:part name="parameters" element="types:getDfltObjAttrHintsAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getEntityListAsync">
+    <wsdl:part name="parameters" element="types:getEntityListAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getServiceLastUpdateTimeAsync">
+    <wsdl:part name="parameters" element="types:getServiceLastUpdateTimeAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_raisePartnerPublicEvent">
+    <wsdl:part name="parameters" element="types:raisePartnerPublicEvent" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_raisePartnerPublicEventResponse">
+    <wsdl:part name="parameters" element="types:raisePartnerPublicEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_raisePartnerPublicEventAsync">
+    <wsdl:part name="parameters" element="types:raisePartnerPublicEventAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerContact">
+    <wsdl:part name="parameters" element="types:getPartnerContact" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerContactResponse">
+    <wsdl:part name="parameters" element="types:getPartnerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerContact">
+    <wsdl:part name="parameters" element="types:updatePartnerContact" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerContactResponse">
+    <wsdl:part name="parameters" element="types:updatePartnerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerContact">
+    <wsdl:part name="parameters" element="types:mergePartnerContact" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerContactResponse">
+    <wsdl:part name="parameters" element="types:mergePartnerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerContact">
+    <wsdl:part name="parameters" element="types:findPartnerContact" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerContactResponse">
+    <wsdl:part name="parameters" element="types:findPartnerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_getPartnerContactAsync">
+    <wsdl:part name="parameters" element="types:getPartnerContactAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_mergePartnerContactAsync">
+    <wsdl:part name="parameters" element="types:mergePartnerContactAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_findPartnerContactAsync">
+    <wsdl:part name="parameters" element="types:findPartnerContactAsync" />
+  </wsdl:message>
+  <wsdl:message name="PartnerService_updatePartnerContactAsync">
+    <wsdl:part name="parameters" element="types:updatePartnerContactAsync" />
+  </wsdl:message>
+  <wsdl:portType name="PartnerServiceResponse">
+    <wsdl:operation name="onFault">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/oracleas/schema/oracle-fault-11_0/Fault" message="tns:PartnerService_onFault" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAsyncResponse" message="tns:PartnerService_getPartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerAsyncResponse" message="tns:PartnerService_updatePartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfileOptionValueAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getProfileOptionValueAsyncResponse" message="tns:PartnerService_getProfileOptionValueAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerCertificationAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerCertificationAsyncResponse" message="tns:PartnerService_deletePartnerCertificationAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="activatePartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/activatePartnerAsyncResponse" message="tns:PartnerService_activatePartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="terminatePartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/terminatePartnerAsyncResponse" message="tns:PartnerService_terminatePartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="approvePartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/approvePartnerAsyncResponse" message="tns:PartnerService_approvePartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerAsyncResponse" message="tns:PartnerService_findPartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerExpertisesAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerExpertisesAsyncResponse" message="tns:PartnerService_deletePartnerExpertisesAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerIndustryServedAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerIndustryServedAsyncResponse" message="tns:PartnerService_deletePartnerIndustryServedAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerProductSpecialityAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerProductSpecialityAsyncResponse" message="tns:PartnerService_deletePartnerProductSpecialityAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerGeographyServedAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerGeographyServedAsyncResponse" message="tns:PartnerService_deletePartnerGeographyServedAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="provisionPartnerMemberAsResourceAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionPartnerMemberAsResourceAsyncResponse" message="tns:PartnerService_provisionPartnerMemberAsResourceAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="provisionResourceAsUserAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionResourceAsUserAsyncResponse" message="tns:PartnerService_provisionResourceAsUserAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRootResourceIdForthePartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getRootResourceIdForthePartnerAsyncResponse" message="tns:PartnerService_getRootResourceIdForthePartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerAccountResourceAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerAccountResourceAsyncResponse" message="tns:PartnerService_deletePartnerAccountResourceAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerTypeAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerTypeAsyncResponse" message="tns:PartnerService_deletePartnerTypeAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerWebAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerWebAsyncResponse" message="tns:PartnerService_deletePartnerWebAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="convertToPartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/convertToPartnerAsyncResponse" message="tns:PartnerService_convertToPartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerPhoneAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerPhoneAsyncResponse" message="tns:PartnerService_deletePartnerPhoneAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerEmailAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerEmailAsyncResponse" message="tns:PartnerService_deletePartnerEmailAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceOrganizationAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceOrganizationAsyncResponse" message="tns:PartnerService_updateResourceOrganizationAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerMemberAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerMemberAsyncResponse" message="tns:PartnerService_deletePartnerMemberAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceManagerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceManagerAsyncResponse" message="tns:PartnerService_updateResourceManagerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createPartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/createPartnerAsyncResponse" message="tns:PartnerService_createPartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="makeContactPrimaryAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/makeContactPrimaryAsyncResponse" message="tns:PartnerService_makeContactPrimaryAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setPartnerAccountOwnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/setPartnerAccountOwnerAsyncResponse" message="tns:PartnerService_setPartnerAccountOwnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerAsyncResponse" message="tns:PartnerService_mergePartnerAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAdministratorUserNameAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAdministratorUserNameAsyncResponse" message="tns:PartnerService_getPartnerAdministratorUserNameAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHintsAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getDfltObjAttrHintsAsyncResponse" message="tns:PartnerService_getDfltObjAttrHintsAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntityListAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getEntityListAsyncResponse" message="tns:PartnerService_getEntityListAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTimeAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getServiceLastUpdateTimeAsyncResponse" message="tns:PartnerService_getServiceLastUpdateTimeAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raisePartnerPublicEventAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/raisePartnerPublicEventAsyncResponse" message="tns:PartnerService_raisePartnerPublicEventAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerContactAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerContactAsyncResponse" message="tns:PartnerService_getPartnerContactAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerContactAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerContactAsyncResponse" message="tns:PartnerService_mergePartnerContactAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerContactAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerContactAsyncResponse" message="tns:PartnerService_findPartnerContactAsyncResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerContactAsyncResponse">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerContactAsyncResponse" message="tns:PartnerService_updatePartnerContactAsyncResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PartnerService">
+    <wsdl:documentation>
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="Partner" SDOName="tns:Partner" UpdateOpName="updatePartner" MergeOpName="mergePartner" GetOpName="getPartner" FindOpName="findPartner" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerAccountResource" SDOName="tns:PartnerAccountResource" DeleteOpName="deletePartnerAccountResource" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerCertification" SDOName="tns:PartnerCertification" DeleteOpName="deletePartnerCertification" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerContact" SDOName="tns:PartnerMember" UpdateOpName="updatePartnerContact" MergeOpName="mergePartnerContact" GetOpName="getPartnerContact" FindOpName="findPartnerContact" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerExpertises" SDOName="tns:PartnerExpertise" DeleteOpName="deletePartnerExpertises" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerGeographyServed" SDOName="tns:PartnerGeographyServed" DeleteOpName="deletePartnerGeographyServed" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerIndustryServed" SDOName="tns:PartnerIndustryServed" DeleteOpName="deletePartnerIndustryServed" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerProductSpeciality" SDOName="tns:PartnerProductSpeciality" DeleteOpName="deletePartnerProductSpeciality" />
+      <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="PartnerType" SDOName="tns:PartnerTypeDimensionMember" DeleteOpName="deletePartnerType" />
+    </wsdl:documentation>
+    <wsdl:operation name="getPartner">
+      <wsdl:input message="tns:PartnerService_getPartner" />
+      <wsdl:output message="tns:PartnerService_getPartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePartner">
+      <wsdl:input message="tns:PartnerService_updatePartner" />
+      <wsdl:output message="tns:PartnerService_updatePartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAsync" message="tns:PartnerService_getPartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerAsync" message="tns:PartnerService_updatePartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfileOptionValue">
+      <wsdl:input message="tns:PartnerService_getProfileOptionValue" />
+      <wsdl:output message="tns:PartnerService_getProfileOptionValueResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfileOptionValueAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getProfileOptionValueAsync" message="tns:PartnerService_getProfileOptionValueAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerCertification">
+      <wsdl:input message="tns:PartnerService_deletePartnerCertification" />
+      <wsdl:output message="tns:PartnerService_deletePartnerCertificationResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerCertificationAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerCertificationAsync" message="tns:PartnerService_deletePartnerCertificationAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="activatePartner">
+      <wsdl:input message="tns:PartnerService_activatePartner" />
+      <wsdl:output message="tns:PartnerService_activatePartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="approvePartner">
+      <wsdl:input message="tns:PartnerService_approvePartner" />
+      <wsdl:output message="tns:PartnerService_approvePartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="terminatePartner">
+      <wsdl:input message="tns:PartnerService_terminatePartner" />
+      <wsdl:output message="tns:PartnerService_terminatePartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="activatePartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/activatePartnerAsync" message="tns:PartnerService_activatePartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="terminatePartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/terminatePartnerAsync" message="tns:PartnerService_terminatePartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="approvePartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/approvePartnerAsync" message="tns:PartnerService_approvePartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="findPartner">
+      <wsdl:input message="tns:PartnerService_findPartner" />
+      <wsdl:output message="tns:PartnerService_findPartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerAsync" message="tns:PartnerService_findPartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerExpertises">
+      <wsdl:input message="tns:PartnerService_deletePartnerExpertises" />
+      <wsdl:output message="tns:PartnerService_deletePartnerExpertisesResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerExpertisesAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerExpertisesAsync" message="tns:PartnerService_deletePartnerExpertisesAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerGeographyServed">
+      <wsdl:input message="tns:PartnerService_deletePartnerGeographyServed" />
+      <wsdl:output message="tns:PartnerService_deletePartnerGeographyServedResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerIndustryServed">
+      <wsdl:input message="tns:PartnerService_deletePartnerIndustryServed" />
+      <wsdl:output message="tns:PartnerService_deletePartnerIndustryServedResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerProductSpeciality">
+      <wsdl:input message="tns:PartnerService_deletePartnerProductSpeciality" />
+      <wsdl:output message="tns:PartnerService_deletePartnerProductSpecialityResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerIndustryServedAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerIndustryServedAsync" message="tns:PartnerService_deletePartnerIndustryServedAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerProductSpecialityAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerProductSpecialityAsync" message="tns:PartnerService_deletePartnerProductSpecialityAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerGeographyServedAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerGeographyServedAsync" message="tns:PartnerService_deletePartnerGeographyServedAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="provisionResourceAsUser">
+      <wsdl:input message="tns:PartnerService_provisionResourceAsUser" />
+      <wsdl:output message="tns:PartnerService_provisionResourceAsUserResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="provisionPartnerMemberAsResource">
+      <wsdl:input message="tns:PartnerService_provisionPartnerMemberAsResource" />
+      <wsdl:output message="tns:PartnerService_provisionPartnerMemberAsResourceResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getRootResourceIdForthePartner">
+      <wsdl:input message="tns:PartnerService_getRootResourceIdForthePartner" />
+      <wsdl:output message="tns:PartnerService_getRootResourceIdForthePartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="provisionPartnerMemberAsResourceAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionPartnerMemberAsResourceAsync" message="tns:PartnerService_provisionPartnerMemberAsResourceAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="provisionResourceAsUserAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionResourceAsUserAsync" message="tns:PartnerService_provisionResourceAsUserAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getRootResourceIdForthePartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getRootResourceIdForthePartnerAsync" message="tns:PartnerService_getRootResourceIdForthePartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerAccountResource">
+      <wsdl:input message="tns:PartnerService_deletePartnerAccountResource" />
+      <wsdl:output message="tns:PartnerService_deletePartnerAccountResourceResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerAccountResourceAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerAccountResourceAsync" message="tns:PartnerService_deletePartnerAccountResourceAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerType">
+      <wsdl:input message="tns:PartnerService_deletePartnerType" />
+      <wsdl:output message="tns:PartnerService_deletePartnerTypeResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerTypeAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerTypeAsync" message="tns:PartnerService_deletePartnerTypeAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerWeb">
+      <wsdl:input message="tns:PartnerService_deletePartnerWeb" />
+      <wsdl:output message="tns:PartnerService_deletePartnerWebResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerPhone">
+      <wsdl:input message="tns:PartnerService_deletePartnerPhone" />
+      <wsdl:output message="tns:PartnerService_deletePartnerPhoneResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerEmail">
+      <wsdl:input message="tns:PartnerService_deletePartnerEmail" />
+      <wsdl:output message="tns:PartnerService_deletePartnerEmailResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="convertToPartner">
+      <wsdl:input message="tns:PartnerService_convertToPartner" />
+      <wsdl:output message="tns:PartnerService_convertToPartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerWebAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerWebAsync" message="tns:PartnerService_deletePartnerWebAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="convertToPartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/convertToPartnerAsync" message="tns:PartnerService_convertToPartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerPhoneAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerPhoneAsync" message="tns:PartnerService_deletePartnerPhoneAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerEmailAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerEmailAsync" message="tns:PartnerService_deletePartnerEmailAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceManager">
+      <wsdl:input message="tns:PartnerService_updateResourceManager" />
+      <wsdl:output message="tns:PartnerService_updateResourceManagerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceOrganization">
+      <wsdl:input message="tns:PartnerService_updateResourceOrganization" />
+      <wsdl:output message="tns:PartnerService_updateResourceOrganizationResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerMember">
+      <wsdl:input message="tns:PartnerService_deletePartnerMember" />
+      <wsdl:output message="tns:PartnerService_deletePartnerMemberResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceOrganizationAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceOrganizationAsync" message="tns:PartnerService_updateResourceOrganizationAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerMemberAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerMemberAsync" message="tns:PartnerService_deletePartnerMemberAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceManagerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceManagerAsync" message="tns:PartnerService_updateResourceManagerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="createPartner">
+      <wsdl:input message="tns:PartnerService_createPartner" />
+      <wsdl:output message="tns:PartnerService_createPartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="createPartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/createPartnerAsync" message="tns:PartnerService_createPartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="makeContactPrimary">
+      <wsdl:input message="tns:PartnerService_makeContactPrimary" />
+      <wsdl:output message="tns:PartnerService_makeContactPrimaryResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="makeContactPrimaryAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/makeContactPrimaryAsync" message="tns:PartnerService_makeContactPrimaryAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="setPartnerAccountOwner">
+      <wsdl:input message="tns:PartnerService_setPartnerAccountOwner" />
+      <wsdl:output message="tns:PartnerService_setPartnerAccountOwnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="setPartnerAccountOwnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/setPartnerAccountOwnerAsync" message="tns:PartnerService_setPartnerAccountOwnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="mergePartner">
+      <wsdl:input message="tns:PartnerService_mergePartner" />
+      <wsdl:output message="tns:PartnerService_mergePartnerResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerAsync" message="tns:PartnerService_mergePartnerAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAdministratorUserName">
+      <wsdl:input message="tns:PartnerService_getPartnerAdministratorUserName" />
+      <wsdl:output message="tns:PartnerService_getPartnerAdministratorUserNameResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAdministratorUserNameAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAdministratorUserNameAsync" message="tns:PartnerService_getPartnerAdministratorUserNameAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHints">
+      <wsdl:input message="tns:PartnerService_getDfltObjAttrHints" />
+      <wsdl:output message="tns:PartnerService_getDfltObjAttrHintsResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTime">
+      <wsdl:input message="tns:PartnerService_getServiceLastUpdateTime" />
+      <wsdl:output message="tns:PartnerService_getServiceLastUpdateTimeResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntityList">
+      <wsdl:input message="tns:PartnerService_getEntityList" />
+      <wsdl:output message="tns:PartnerService_getEntityListResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHintsAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getDfltObjAttrHintsAsync" message="tns:PartnerService_getDfltObjAttrHintsAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getEntityListAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getEntityListAsync" message="tns:PartnerService_getEntityListAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTimeAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getServiceLastUpdateTimeAsync" message="tns:PartnerService_getServiceLastUpdateTimeAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="raisePartnerPublicEvent">
+      <wsdl:input message="tns:PartnerService_raisePartnerPublicEvent" />
+      <wsdl:output message="tns:PartnerService_raisePartnerPublicEventResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="raisePartnerPublicEventAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/raisePartnerPublicEventAsync" message="tns:PartnerService_raisePartnerPublicEventAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerContact">
+      <wsdl:input message="tns:PartnerService_getPartnerContact" />
+      <wsdl:output message="tns:PartnerService_getPartnerContactResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerContact">
+      <wsdl:input message="tns:PartnerService_updatePartnerContact" />
+      <wsdl:output message="tns:PartnerService_updatePartnerContactResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerContact">
+      <wsdl:input message="tns:PartnerService_mergePartnerContact" />
+      <wsdl:output message="tns:PartnerService_mergePartnerContactResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerContact">
+      <wsdl:input message="tns:PartnerService_findPartnerContact" />
+      <wsdl:output message="tns:PartnerService_findPartnerContactResponse" />
+      <wsdl:fault name="ServiceException" message="errors:ServiceException" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerContactAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerContactAsync" message="tns:PartnerService_getPartnerContactAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerContactAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerContactAsync" message="tns:PartnerService_mergePartnerContactAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerContactAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerContactAsync" message="tns:PartnerService_findPartnerContactAsync" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerContactAsync">
+      <wsdl:input xmlns:ns1="http://www.w3.org/2006/05/addressing/wsdl" ns1:Action="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerContactAsync" message="tns:PartnerService_updatePartnerContactAsync" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PartnerServiceResponseBinding" type="tns:PartnerServiceResponse">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#wss11_saml_token_with_message_protection_client_policy" wsdl:required="false" />
+    <wsdl:operation name="onFault">
+      <soap:operation soapAction="http://xmlns.oracle.com/oracleas/schema/oracle-fault-11_0/Fault" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getProfileOptionValueAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getProfileOptionValueAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerCertificationAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerCertificationAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="activatePartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/activatePartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="terminatePartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/terminatePartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="approvePartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/approvePartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerExpertisesAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerExpertisesAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerIndustryServedAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerIndustryServedAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerProductSpecialityAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerProductSpecialityAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerGeographyServedAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerGeographyServedAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="provisionPartnerMemberAsResourceAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionPartnerMemberAsResourceAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="provisionResourceAsUserAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionResourceAsUserAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getRootResourceIdForthePartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getRootResourceIdForthePartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerAccountResourceAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerAccountResourceAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerTypeAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerTypeAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerWebAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerWebAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="convertToPartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/convertToPartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerPhoneAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerPhoneAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerEmailAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerEmailAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceOrganizationAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceOrganizationAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerMemberAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerMemberAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceManagerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceManagerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="createPartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/createPartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="makeContactPrimaryAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/makeContactPrimaryAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setPartnerAccountOwnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/setPartnerAccountOwnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAdministratorUserNameAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAdministratorUserNameAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHintsAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getDfltObjAttrHintsAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityListAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getEntityListAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTimeAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getServiceLastUpdateTimeAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="raisePartnerPublicEventAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/raisePartnerPublicEventAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerContactAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerContactAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerContactAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerContactAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerContactAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerContactAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerContactAsyncResponse">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerContactAsyncResponse" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceResponse_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PartnerServiceSoapHttp" type="tns:PartnerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#wss11_saml_or_username_token_with_message_protection_service_policy" wsdl:required="false" />
+    <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#wsaddr_policy" wsdl:required="false" />
+    <wsdl:operation name="getPartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getProfileOptionValue">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getProfileOptionValue" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProfileOptionValueAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getProfileOptionValueAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerCertification">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerCertification" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerCertificationAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerCertificationAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="activatePartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/activatePartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="approvePartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/approvePartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="terminatePartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/terminatePartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="activatePartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/activatePartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="terminatePartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/terminatePartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="approvePartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/approvePartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="findPartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerExpertises">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerExpertises" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerExpertisesAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerExpertisesAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerGeographyServed">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerGeographyServed" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerIndustryServed">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerIndustryServed" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerProductSpeciality">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerProductSpeciality" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerIndustryServedAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerIndustryServedAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerProductSpecialityAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerProductSpecialityAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerGeographyServedAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerGeographyServedAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="provisionResourceAsUser">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionResourceAsUser" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="provisionPartnerMemberAsResource">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionPartnerMemberAsResource" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRootResourceIdForthePartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getRootResourceIdForthePartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="provisionPartnerMemberAsResourceAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionPartnerMemberAsResourceAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="provisionResourceAsUserAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/provisionResourceAsUserAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getRootResourceIdForthePartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getRootResourceIdForthePartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerAccountResource">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerAccountResource" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerAccountResourceAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerAccountResourceAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerType">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerType" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerTypeAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerTypeAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerWeb">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerWeb" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerPhone">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerPhone" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerEmail">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerEmail" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="convertToPartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/convertToPartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerWebAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerWebAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="convertToPartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/convertToPartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerPhoneAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerPhoneAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerEmailAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerEmailAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceManager">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceManager" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceOrganization">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceOrganization" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerMember">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerMember" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceOrganizationAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceOrganizationAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deletePartnerMemberAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/deletePartnerMemberAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updateResourceManagerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updateResourceManagerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="createPartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/createPartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createPartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/createPartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="makeContactPrimary">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/makeContactPrimary" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="makeContactPrimaryAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/makeContactPrimaryAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setPartnerAccountOwner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/setPartnerAccountOwner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setPartnerAccountOwnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/setPartnerAccountOwnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="mergePartner">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartner" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAdministratorUserName">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAdministratorUserName" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerAdministratorUserNameAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerAdministratorUserNameAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHints">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getDfltObjAttrHints" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTime">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getServiceLastUpdateTime" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityList">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getEntityList" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDfltObjAttrHintsAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getDfltObjAttrHintsAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityListAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getEntityListAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceLastUpdateTimeAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getServiceLastUpdateTimeAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="raisePartnerPublicEvent">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/raisePartnerPublicEvent" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="raisePartnerPublicEventAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/raisePartnerPublicEventAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerContact">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerContact" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerContact">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerContact" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerContact">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerContact" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerContact">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerContact" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Output_Policy" wsdl:required="false" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Fault_Policy" wsdl:required="false" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPartnerContactAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/getPartnerContactAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="mergePartnerContactAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/mergePartnerContactAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="findPartnerContactAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/findPartnerContactAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updatePartnerContactAsync">
+      <soap:operation soapAction="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/updatePartnerContactAsync" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#PartnerServiceSoapHttpPort_Input_Policy" wsdl:required="false" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PartnerService">
+    <wsdl:port name="PartnerServiceSoapHttpPort" binding="tns:PartnerServiceSoapHttp">
+      <soap:address location="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService" />
+      <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsa:Address xmlns:wsa="http://www.w3.org/2005/08/addressing">https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService</wsa:Address>
+        <wsid:Identity xmlns:wsid="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <dsig:KeyInfo xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+            <dsig:X509Data>
+              <dsig:X509Certificate>MIIDVzCCAj+gAwIBAgIIVg/+Q6HleUswDQYJKoZIhvcNAQELBQAwWTETMBEGCgmSJomT8ixkARkWA2NvbTEWMBQGCgmSJomT8ixkARkWBm9yYWNsZTEVMBMGCgmSJomT8ixkARkWBWNsb3VkMRMwEQYDVQQDEwpDbG91ZDlDQS0yMB4XDTE2MDUyMTAyMTgxMVoXDTI2MDUxOTAyMTgxMVowWzETMBEGCgmSJomT8ixkARkWA2NvbTEWMBQGCgmSJomT8ixkARkWBm9yYWNsZTEVMBMGCgmSJomT8ixkARkWBWNsb3VkMRUwEwYDVQQDEwxGQUVuY3J5cHRpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCXkkCRaPrzPLVxYvo6yqAMrcduV0+Ghq6NCdXAhKdbAXkc6yfFJPpYKDTEooxEUVZUkcfzZ+N3kJq6fTcQifkHPhobN5SHHSAprBWTrwDPjuQtrOC+NxB4wb02tQD/RV722MaUmzIVUrxEcY4hr0SADaqTT+4kvGysNwfxBRrRACs3fY3B41B6qL85ZiWq5GBUdjqEJqpdCWKa2fYiRDDiWXQcGwf3HNETR1QMi20/HjUSwURZLAUoGZAvLpnc9Va5WD3VKfpQ+BME6gs/jCuKKKd5lzm1sn08rT+H7vbT8JfkHL4sbHMhTgSV7HVh7SCOeLY5/kyLmcDxGpAEWEs/AgMBAAGjITAfMB0GA1UdDgQWBBRe0RelArN2TGMOMSDshZ/yxiLr/jANBgkqhkiG9w0BAQsFAAOCAQEArJa3QUFptgahgBUHiXQ0Xsl1yGHgp7x0RqYUVFuIId3ojpASaN1hWY7Ze7gUC7yELqDj/w+z9fXa7ce7S9tMbPL82/pvoh48N8kEOeCkvFrww+XCKu0ywbjNKzejsl4hWr6t0Ej1cZ2cBrzz0V42acUBwtIDeRBD0VWffA0EEF9uRyOByErHg5yAcl+2n6vnwvhRHMRNNXn2r2ueRyu+nKKl3upWijgJDiWHcaCXZf/HCju1XgnZV+g5t4//R2dDMoBzhWqY9rIcO+7yYFGwyADrao0NqwQk9Vco4KC3I4fWyi+EZalBCUx31sMhTYopy5qOqnlWsCVd/6g75ce9DA==</dsig:X509Certificate>
+              <dsig:X509IssuerSerial>
+                <dsig:X509IssuerName>CN=Cloud9CA-2, DC=cloud, DC=oracle, DC=com</dsig:X509IssuerName>
+                <dsig:X509SerialNumber>6201454778344896843</dsig:X509SerialNumber>
+              </dsig:X509IssuerSerial>
+              <dsig:X509SubjectName>CN=FAEncryption, DC=cloud, DC=oracle, DC=com</dsig:X509SubjectName>
+              <dsig:X509SKI>XtEXpQKzdkxjDjEg7IWf8sYi6/4=</dsig:X509SKI>
+              <dsig:X509Certificate>MIIDazCCAlOgAwIBAgIIMdQl7kIMrv0wDQYJKoZIhvcNAQELBQAwWTETMBEGCgmSJomT8ixkARkWA2NvbTEWMBQGCgmSJomT8ixkARkWBm9yYWNsZTEVMBMGCgmSJomT8ixkARkWBWNsb3VkMRMwEQYDVQQDEwpDbG91ZDlDQS0yMCAXDTE2MDUyMTAyMTgwOVoYDzIxMTYwNDI3MDIxODA5WjBZMRMwEQYKCZImiZPyLGQBGRYDY29tMRYwFAYKCZImiZPyLGQBGRYGb3JhY2xlMRUwEwYKCZImiZPyLGQBGRYFY2xvdWQxEzARBgNVBAMTCkNsb3VkOUNBLTIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDPZn2VAoMsIfWmIJks9exzK+DXaX6qYyBc12dRqDrRpC48v3CBeBchV/GT2E+mjcDp8Hzq8oIpwr9W5kwMja4PU3SPd4/0LB6WKbtLfHOnJxLg9EaT992UpbUGHaHlEq4oRAuVvPgDLp5sSspLZYEBKUh4vJXOyLitE1qsXn7mJNXRKTJZvrJKdfbs1dyTge3V3wk1rwY/wCWMKVgkqCgSzzWCGju8EZWoOrnzlR6BHkA0qZqeV4F7jDW8ucdv+Y20pOlOiaEbIg/ZFYGrZd5VWjlNvgLfU8P4C/YJLSkkcPHgoet3w4jI0S26efu59rVzgU9VsKnKtnqbDL99t81vAgMBAAGjNTAzMBIGA1UdEwEB/wQIMAYBAf8CAQAwHQYDVR0OBBYEFDMA8e55FI5kC12+guIE9xtcIXpFMA0GCSqGSIb3DQEBCwUAA4IBAQC45tOVeqHxA8Bo/Rnv1SHHpULge3HyTC1XV9nmUdrj6g/U6rmbA5hVJ5LshgQ77qopO/YsaNHj5Ru1u/+8VOlZWpbn+kt3CDOuBUCe89CKBZT/KWEDkvtNl2qu16gOkhFnuTQk8NsARvwZZ6KtyPDmsbW4Nc/I5fKwPhdTaMjCV6Lh9RCG4kU77lbdwY3SaXlCBXXQyfPWMouCi7z1thJaF3cNGW4tnsibMR5ej9fJ9j6UvShxNgAIgjNDoihPlC6k0kW3QDR3bBjCHJX47505aIhckojH/eKsP2Or0eE/Ma4WNbndj0IXPE2ae5AVmC8/GRtwAmnoZPnt3g/I2m5j</dsig:X509Certificate>
+            </dsig:X509Data>
+          </dsig:KeyInfo>
+        </wsid:Identity>
+      </wsa:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

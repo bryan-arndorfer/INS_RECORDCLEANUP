@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="06a7e180-abf6-41b8-a539-c70ba8051df1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustomObject7_c.xsd" MetadataType="Schema" ID="2b0e7f10-da59-471d-9483-c0efaca207a7" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject7_c.xsd" />
+    <MetadataFile FileName="CustomObject3_c.xsd" MetadataType="Schema" ID="954cc628-f114-475e-b999-3c63078ffab1" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject3_c.xsd" />
+    <MetadataFile FileName="SalesCustomObjectService.wsdl" MetadataType="Wsdl" ID="fedd0ed4-f1f3-43ad-85e8-d92dabd30d38" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?WSDL" />
+    <MetadataFile FileName="datagraph.xsd" MetadataType="Schema" ID="8eebcad2-ad2b-4e5d-9e81-0cce79921e71" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/xml/datagraph.xsd" />
+    <MetadataFile FileName="CustomObject5_c.xsd" MetadataType="Schema" ID="53b5561f-9e83-4e0e-a398-2c4a0f252080" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject5_c.xsd" />
+    <MetadataFile FileName="sdoXML.xsd" MetadataType="Schema" ID="5c6ce278-663e-4ef4-9b84-8b778dc67d18" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/xml/sdoXML.xsd" />
+    <MetadataFile FileName="CustomObject2_c.xsd" MetadataType="Schema" ID="b64ad29c-737d-4176-b4f7-adc03dcfc408" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject2_c.xsd" />
+    <MetadataFile FileName="BC4JService.xsd" MetadataType="Schema" ID="3fca96cb-a488-4c7d-83f5-4db9323b309b" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/META-INF/wsdl/BC4JService.xsd" />
+    <MetadataFile FileName="OneForceQuotes_c.xsd" MetadataType="Schema" ID="d477efaf-e740-4ef8-a1b6-0a683cf8d633" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/OneForceQuotes_c.xsd" />
+    <MetadataFile FileName="CreditCommissions_c.xsd" MetadataType="Schema" ID="9f21e914-67c0-42ab-93aa-621d5eb0f817" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CreditCommissions_c.xsd" />
+    <MetadataFile FileName="IntObj1_c.xsd" MetadataType="Schema" ID="423fb53e-20ee-45f4-825f-efcc74f19bae" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/IntObj1_c.xsd" />
+    <MetadataFile FileName="ServiceException.wsdl" MetadataType="Wsdl" ID="81bde764-dfb0-4831-b107-9f801bd95c17" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?WSDL=/META-INF/wsdl/ServiceException.wsdl" />
+    <MetadataFile FileName="sdoJava.xsd" MetadataType="Schema" ID="f35f724e-94dd-4726-a809-3168ae271f45" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/xml/sdoJava.xsd" />
+    <MetadataFile FileName="SalesCustomObjectService.xsd" MetadataType="Schema" ID="cbd10e6d-dc52-4533-b87e-43eeebf34f7b" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/oracle/apps/sales/custExtn/extnService/SalesCustomObjectService.xsd" />
+    <MetadataFile FileName="sdoModel.xsd" MetadataType="Schema" ID="0a44937e-62f2-4b65-84ab-0157b40ead06" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/xml/sdoModel.xsd" />
+    <MetadataFile FileName="EnrollmentFeePayments_c.xsd" MetadataType="Schema" ID="770e6a91-be8c-42e7-b059-ba266e87c2ad" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/EnrollmentFeePayments_c.xsd" />
+    <MetadataFile FileName="CustomObject10_c.xsd" MetadataType="Schema" ID="592361f7-303b-4bf3-a505-ce5aa8748eed" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject10_c.xsd" />
+    <MetadataFile FileName="CustomObject4_c.xsd" MetadataType="Schema" ID="c40ac683-62aa-4c2d-a0a4-c2f21967f211" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject4_c.xsd" />
+    <MetadataFile FileName="ManagerCalls_c.xsd" MetadataType="Schema" ID="365e7ea1-6a70-49ed-a12a-9801749c8a7e" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/ManagerCalls_c.xsd" />
+    <MetadataFile FileName="SalesLog_c.xsd" MetadataType="Schema" ID="e38614ef-3bfb-4de1-bfec-53a8cc0fc475" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/SalesLog_c.xsd" />
+    <MetadataFile FileName="RewardsProgram_c.xsd" MetadataType="Schema" ID="4df0a426-0fc6-4645-9949-84d5ebc01b72" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/RewardsProgram_c.xsd" />
+    <MetadataFile FileName="ServiceException.xsd" MetadataType="Schema" ID="84a53c37-56cb-40dc-af1f-8294e179567b" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/META-INF/wsdl/ServiceException.xsd" />
+    <MetadataFile FileName="CustomObject1_c.xsd" MetadataType="Schema" ID="8dd048fa-e910-4fa4-a193-86a80b126c52" SourceId="1" SourceUrl="https://ccaa-test.crm.us2.oraclecloud.com/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/sessiondef/oracle/apps/sales/custExtn/views/common/CustomObject1_c.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

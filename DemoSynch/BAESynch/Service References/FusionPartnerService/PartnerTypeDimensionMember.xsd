@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:sdoJava="commonj.sdo/java" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" sdoJava:package="oracle.apps.partnerMgmt.partnerCenter.publicModel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:include schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerDimensionMember.xsd" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">Partner Type</name>
+      <description xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">A list of business relationships shared with a partner.</description>
+      <oer:category name="lba" xmlns:oer="http://xmlns.oracle.com/oer">
+        <value xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">PartnerMgmtTop-Partner Management Business Area</value>
+        <value xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">PartnerMgmtTop-Partner Management Business Area :
+                    PartnerCenterCore-Partner Center</value>
+      </oer:category>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="Partner Type Code" name="PartnerTypeCode" />
+        <oer:attribute description="Partner Type Name. For Example Value Added Reseller etc" name="PartnerTypeName" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="PartnerTypeDimensionMemberResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:MethodResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Value" type="PartnerTypeDimensionMember" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PartnerTypeDimensionMember">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>PartnerDimMembersId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="PartnerDimensionMember">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PartnerTypeCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PartnerTypeName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="partnerTypeDimensionMemberResult" type="PartnerTypeDimensionMemberResult" />
+  <xsd:element name="partnerTypeDimensionMember" type="PartnerTypeDimensionMember" />
+</xsd:schema>

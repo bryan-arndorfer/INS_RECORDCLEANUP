@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="/oracle/apps/sales/custExtn/views/common/" xmlns:sdoJava="commonj.sdo/java" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" elementFormDefault="qualified" targetNamespace="/oracle/apps/sales/custExtn/views/common/" sdoJava:package="sessiondef.oracle.apps.sales.custExtn.views.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/opptyMgmtExtensibility/SalesCustomObjectService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="/oracle/apps/sales/custExtn/views/common/">Enrollment Fee Payments</name>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Type_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Payment1Method_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Payment2Method_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Payment3Method_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Payment4Method_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Payment5Method_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Payment6Method_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="CustomObject5_c">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>Id</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Id" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="RecordName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CreatedBy" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CreationDate" type="ns0:dateTime-Timestamp" />
+      <xsd:element minOccurs="0" name="LastUpdatedBy" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LastUpdateDate" type="ns0:dateTime-Timestamp" />
+      <xsd:element minOccurs="0" name="ObjectVersionNumber" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="LastUpdateLogin" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CpdrfVerSor" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="UserLastUpdateDate" nillable="true" type="ns0:dateTime-Timestamp" />
+      <xsd:element minOccurs="0" name="CpdrfLastUpd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CpdrfVerPillar" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="JobDefinitionPackage" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RequestId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="JobDefinitionName" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurrencyCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurcyConvRateType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CorpCurrencyCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" default="CustomObject5_c" name="SourceType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" default="CustomObject5_c" name="AttachmentEntityName" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PKProxy" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="IsOwner" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Id_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Name_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Type_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ExternalUniqueID_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Description_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="TotalEnrollmentFee_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="RemaingEFDue_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="Payment1_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="Payment2_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="Payment3_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="Payment4_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="Payment5_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="Payment6_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="BPABPC1EFPayout_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="BPABPC2EFPayout_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="BPABPC3EFPayout_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="BPABPC4EFPayout_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="BPABPC5EFPayout_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="DateEntered_c" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="BPABPC1EF_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="BPABPC2EF_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="BPABPC3EF_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="BPABPC4EF_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="BPABPC5EF_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="SalesOffice_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ClientID_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="stPayInvoiceDate_c" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="Payment1Method_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment2Method_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment3Method_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment4Method_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment5Method_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment6Method_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment1Detail_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment2Detail_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment3Detail_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment4Detail_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment5Detail_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Payment6Detail_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BPABPC1_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BPABPC2_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BPABPC3_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BPABPC4_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BPABPC5_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BPABPC6_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="InsperityFee_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="EFMinusInsperityFee_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="AccountId_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="AccountId_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Opportunity_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="Opportunity_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Owner_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="Owner_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Account_Id1_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="Account_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="AccountExternalUniqueID_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="AccountExternalUniqueID_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OpportunityExternalUniqueID_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="OpportunityExternalUniqueID_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ITAWOAmount_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="EnrollmentFeeNotes_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="AccountDCL_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="AccountDCL_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OpportunityDCL_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="OpportunityDCL_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ResourceDCL_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="ResourceDCL_c" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="customObject5_c" type="CustomObject5_c" />
+</xsd:schema>

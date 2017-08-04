@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:sdoJava="commonj.sdo/java" xmlns:ns0="http://xmlns.oracle.com/apps/cdm/foundation/parties/personService/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" sdoJava:package="oracle.apps.partnerMgmt.partnerCenter.publicModel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/personService/Person.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/personService/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">Partner Members</name>
+      <description xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">Object representing Partner Members for a Partner</description>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="PartyId of Partner Organization to whom this Contact belongs." name="ObjectId" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="PartnerMember">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>PartyId</attribute>
+          <attribute>RelationshipRecId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:Person">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ObjectId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="partnerMember" type="PartnerMember" />
+</xsd:schema>

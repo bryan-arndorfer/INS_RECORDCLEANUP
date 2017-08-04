@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:ns4="http://xmlns.oracle.com/apps/cdm/foundation/parties/locationService/" xmlns:ns5="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/" xmlns:tns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/types/" xmlns:ns2="http://xmlns.oracle.com/apps/cdm/foundation/parties/contactPointService/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns:ns3="http://xmlns.oracle.com/apps/cdm/foundation/parties/personService/" xmlns:ns1="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/types/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerTypeDimensionMember.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Email.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/contactPointService/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/organizationService/OrganizationParty.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/locationService/Location.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/locationService/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Web.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/contactPointService/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerCertification.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerIndustryServed.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerExpertise.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/Partner.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerProductSpeciality.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/contactPointService/Phone.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/contactPointService/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/personService/Person.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/personService/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerAccountResource.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerGeographyServed.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerMember.xsd" namespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" />
+  <element name="getPartner">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartner">
+    <complexType>
+      <sequence>
+        <element name="partner" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partner" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getProfileOptionValue">
+    <complexType>
+      <sequence>
+        <element name="profileOption" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getProfileOptionValueResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getProfileOptionValueAsync">
+    <complexType>
+      <sequence>
+        <element name="profileOption" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getProfileOptionValueAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerCertification">
+    <complexType>
+      <sequence>
+        <element name="partnerCertification" type="ns1:PartnerCertification" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerCertificationResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerCertificationAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerCertification" type="ns1:PartnerCertification" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerCertificationAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="activatePartner">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="activatePartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="approvePartner">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="approvePartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="terminatePartner">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="terminatePartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="activatePartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="activatePartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="terminatePartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="terminatePartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="approvePartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="approvePartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartner">
+    <complexType>
+      <sequence>
+        <element name="findCriteria" type="ns0:FindCriteria" />
+        <element name="findControl" type="ns0:FindControl" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="findCriteria" type="ns0:FindCriteria" />
+        <element name="findControl" type="ns0:FindControl" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerExpertises">
+    <complexType>
+      <sequence>
+        <element name="partnerExpertises" type="ns1:PartnerExpertise" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerExpertisesResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerExpertisesAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerExpertises" type="ns1:PartnerExpertise" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerExpertisesAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerGeographyServed">
+    <complexType>
+      <sequence>
+        <element name="partnerGeographyServed" type="ns1:PartnerGeographyServed" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerGeographyServedResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerIndustryServed">
+    <complexType>
+      <sequence>
+        <element name="partnerIndustryServed" type="ns1:PartnerIndustryServed" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerIndustryServedResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerProductSpeciality">
+    <complexType>
+      <sequence>
+        <element name="partnerProductSpeciality" type="ns1:PartnerProductSpeciality" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerProductSpecialityResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerIndustryServedAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerIndustryServed" type="ns1:PartnerIndustryServed" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerIndustryServedAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerProductSpecialityAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerProductSpeciality" type="ns1:PartnerProductSpeciality" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerProductSpecialityAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerGeographyServedAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerGeographyServed" type="ns1:PartnerGeographyServed" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerGeographyServedAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="provisionResourceAsUser">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="autoProvisionRoles" type="boolean" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionResourceAsUserResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionPartnerMemberAsResource">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="roleName" type="string" />
+        <element name="mgrId" type="long" />
+        <element name="orgName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionPartnerMemberAsResourceResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getRootResourceIdForthePartner">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getRootResourceIdForthePartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionPartnerMemberAsResourceAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="roleName" type="string" />
+        <element name="mgrId" type="long" />
+        <element name="orgName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionPartnerMemberAsResourceAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionResourceAsUserAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="autoProvisionRoles" type="boolean" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="provisionResourceAsUserAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getRootResourceIdForthePartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getRootResourceIdForthePartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerAccountResource">
+    <complexType>
+      <sequence>
+        <element name="partnerAccountResource" type="ns1:PartnerAccountResource" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerAccountResourceResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerAccountResourceAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerAccountResource" type="ns1:PartnerAccountResource" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerAccountResourceAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerType">
+    <complexType>
+      <sequence>
+        <element name="partnerType" type="ns1:PartnerTypeDimensionMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerTypeResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerTypeAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerType" type="ns1:PartnerTypeDimensionMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerTypeAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:MethodResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerWeb">
+    <complexType>
+      <sequence>
+        <element name="partnerWeb" type="ns2:Web" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerWebResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerPhone">
+    <complexType>
+      <sequence>
+        <element name="partnerPhone" type="ns2:Phone" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerPhoneResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerEmail">
+    <complexType>
+      <sequence>
+        <element name="partnerEmail" type="ns2:Email" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerEmailResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="convertToPartner">
+    <complexType>
+      <sequence>
+        <element name="orgPartyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="convertToPartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerWebAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerWeb" type="ns2:Web" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerWebAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="convertToPartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="orgPartyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="convertToPartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerPhoneAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPhone" type="ns2:Phone" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerPhoneAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="deletePartnerEmailAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerEmail" type="ns2:Email" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerEmailAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="updateResourceManager">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="managerPartyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceManagerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceOrganization">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="orgName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceOrganizationResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerMember">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerMemberResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceOrganizationAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="orgName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceOrganizationAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerMemberAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="deletePartnerMemberAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceManagerAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+        <element name="managerPartyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updateResourceManagerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createPartner">
+    <complexType>
+      <sequence>
+        <element name="orgParty" type="ns5:OrganizationParty" />
+        <element name="primaryLocation" type="ns4:Location" />
+        <element name="partner" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createPartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createPartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="orgParty" type="ns5:OrganizationParty" />
+        <element name="primaryLocation" type="ns4:Location" />
+        <element name="partner" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createPartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="makeContactPrimary">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="makeContactPrimaryResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="makeContactPrimaryAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="partnerMemberId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="makeContactPrimaryAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="setPartnerAccountOwner">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="resourceId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="setPartnerAccountOwnerResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="setPartnerAccountOwnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerPartyId" type="long" />
+        <element name="resourceId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="setPartnerAccountOwnerAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="mergePartner">
+    <complexType>
+      <sequence>
+        <element name="partner" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerAsync">
+    <complexType>
+      <sequence>
+        <element name="partner" type="ns1:Partner" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerResult" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerAdministratorUserName">
+    <complexType>
+      <sequence>
+        <element name="partnerId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerAdministratorUserNameResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerAdministratorUserNameAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerAdministratorUserNameAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getDfltObjAttrHints">
+    <complexType>
+      <sequence>
+        <element name="viewName" type="string" />
+        <element name="localeName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getDfltObjAttrHintsResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:ObjAttrHints" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getServiceLastUpdateTime">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getServiceLastUpdateTimeResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:dateTime-Timestamp" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getEntityList">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getEntityListResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="ns0:ServiceViewInfo" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getDfltObjAttrHintsAsync">
+    <complexType>
+      <sequence>
+        <element name="viewName" type="string" />
+        <element name="localeName" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getDfltObjAttrHintsAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:ObjAttrHints" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getEntityListAsync">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getEntityListAsyncResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="ns0:ServiceViewInfo" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getServiceLastUpdateTimeAsync">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getServiceLastUpdateTimeAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns0:dateTime-Timestamp" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="raisePartnerPublicEvent">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+        <element name="eventType" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="raisePartnerPublicEventResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="raisePartnerPublicEventAsync">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+        <element name="eventType" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="raisePartnerPublicEventAsyncResponse">
+    <complexType>
+      <sequence />
+    </complexType>
+  </element>
+  <element name="getPartnerContact">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerContactResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerContactAsync">
+    <complexType>
+      <sequence>
+        <element name="partyId" type="long" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="getPartnerContactAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerContact">
+    <complexType>
+      <sequence>
+        <element name="partnerContact" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerContactResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerContact">
+    <complexType>
+      <sequence>
+        <element name="partnerContact" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerContactResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerContact">
+    <complexType>
+      <sequence>
+        <element name="findCriteria" type="ns0:FindCriteria" />
+        <element name="findControl" type="ns0:FindControl" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerContactResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerContactAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerContact" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="mergePartnerContactAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerContactAsync">
+    <complexType>
+      <sequence>
+        <element name="findCriteria" type="ns0:FindCriteria" />
+        <element name="findControl" type="ns0:FindControl" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="findPartnerContactAsyncResponse">
+    <complexType>
+      <sequence>
+        <element minOccurs="0" maxOccurs="unbounded" name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerContactAsync">
+    <complexType>
+      <sequence>
+        <element name="partnerContact" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="updatePartnerContactAsyncResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="ns1:PartnerMember" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

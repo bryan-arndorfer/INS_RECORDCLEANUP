@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:sdoJava="commonj.sdo/java" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" sdoJava:package="oracle.apps.partnerMgmt.partnerCenter.publicModel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:include schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerDimensionMember.xsd" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">Industry Served</name>
+      <description xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">A Partner Industry Served Dimension Object containing all the
+                industry dim member of a Partner.</description>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="Classification Category of Industry Served." name="ClassificationCategory" />
+        <oer:attribute description="Classification Code of Industry Served." name="ClassificationCode" />
+        <oer:attribute description="Classification Name of Industry Served." name="ClassificationName" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="PartnerIndustryServed">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>PartnerDimMembersId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="PartnerDimensionMember">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ClassificationCategory" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ClassificationCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ClassificationName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="partnerIndustryServed" type="PartnerIndustryServed" />
+</xsd:schema>

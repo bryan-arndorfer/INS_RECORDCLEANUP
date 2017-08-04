@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" xmlns:sdoJava="commonj.sdo/java" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/" sdoJava:package="oracle.apps.partnerMgmt.partnerCenter.publicModel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:include schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/partnerMgmt/partnerCenter/publicModel/PartnerProfileMultivalueLov.xsd" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">Partner Certification</name>
+      <description xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">A list of certifications that a partner has achieved.</description>
+      <oer:category name="lba" xmlns:oer="http://xmlns.oracle.com/oer">
+        <value xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">PartnerMgmtTop-Partner Management Business Area</value>
+        <value xmlns="http://xmlns.oracle.com/apps/partnerMgmt/partnerCenter/">PartnerMgmtTop-Partner Management Business Area :
+                    PartnerCenterCore-Partner Center</value>
+      </oer:category>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="The name of this certification." name="Meaning" />
+        <oer:attribute description="Key information for the certification." name="LookupType1" />
+        <oer:attribute description="Key information for the certification." name="LookupCode1" />
+        <oer:attribute description="The code of this certification." name="CertificationCode" />
+        <oer:attribute description="The name of this certification." name="CertificationName" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="PartnerCertificationResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:MethodResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Value" type="PartnerCertification" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PartnerCertification">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>PartnerMultivalLovId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="PartnerProfileMultivalueLov">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Meaning" type="xsd:string" />
+          <xsd:element minOccurs="0" name="LookupType1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="LookupCode1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CertificationCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CertificationName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="partnerCertificationResult" type="PartnerCertificationResult" />
+  <xsd:element name="partnerCertification" type="PartnerCertification" />
+</xsd:schema>

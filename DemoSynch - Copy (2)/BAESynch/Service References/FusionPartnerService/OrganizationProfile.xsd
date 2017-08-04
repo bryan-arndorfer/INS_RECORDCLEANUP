@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:sdoXML="commonj.sdo/xml" xmlns:sdoJava="commonj.sdo/java" xmlns:sdo="commonj.sdo" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/" xmlns:ns1="http://xmlns.oracle.com/apps/cdm/foundation/parties/flex/organization/" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/" sdoJava:package="oracle.apps.cdm.foundation.parties.organizationService" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/oracle/apps/cdm/foundation/parties/flex/organization/OrganizationInformation.xsd" namespace="http://xmlns.oracle.com/apps/cdm/foundation/parties/flex/organization/" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoJava.xsd" namespace="commonj.sdo/java" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoXML.xsd" namespace="commonj.sdo/xml" />
+  <xsd:import schemaLocation="https://ccaa-test.crm.us2.oraclecloud.com:443/partnerCenterCorePublicModel/PartnerService?XSD=/xml/sdoModel.xsd" namespace="commonj.sdo" />
+  <xsd:annotation>
+    <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+      <name xmlns="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/">Account</name>
+      <description xmlns="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/">A trading community member of type organization and its profile information.</description>
+      <oer:category name="lba" xmlns:oer="http://xmlns.oracle.com/oer">
+        <value xmlns="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/">CdmTop-Customer Data Management</value>
+        <value xmlns="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/">CdmTop-Customer Data Management : FoundationTop-Foundation</value>
+        <value xmlns="http://xmlns.oracle.com/apps/cdm/foundation/parties/organizationService/">CdmTop-Customer Data Management : FoundationTop-Foundation : FoundationParties-Parties</value>
+      </oer:category>
+      <oer:attributes xmlns:oer="http://xmlns.oracle.com/oer">
+        <oer:attribute description="Unique identifier for organization profiles.System Generated. Primary Key" name="OrganizationProfileId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Unique party indentifier." name="PartyId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Name of a party of the Organization party type" name="OrganizationName" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Identifier used to query the Dun and Bradstreet data. If a location is a branch, then in some countries the headquarters DUNS number is used to do the query. Otherwise it is the same as the DUNS number." name="EnquiryDUNS" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Name of the chief executive officer" name="CeoName" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Formal title of the chief executive officer" name="CeoTitle" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Name of the highest ranking person in the company" name="PrincipalName" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Title of the highest ranking person in the company" name="PrincipalTitle" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Legal structure. For example, partnership, corporation, and so on." name="LegalStatus" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Year when current ownership gained control" name="ControlYr" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Total number of employees" name="EmployeesTotal" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Status of this site. Identifies if the location is the HQ, a branch, or a single location." name="HQBranchIndicator" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this is a branch location. Y for branch locations, N for all other locations." name="BranchFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this organization is out of business. Y for businesses that are out of business, N for active businesses." name="OobInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Type of business activities performed at this site" name="LineOfBusiness" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="U.S. Congressional District" name="CongDistCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company is an importer. Y for an importer, N for an organization that does not import." name="ImportInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company is an exporter. Y for an exporter, N for an organization that does not export." name="ExportInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company operates in an area with a labor surplus. Y for a surplus, N for no surplus exists." name="LaborSurplusInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company is primarily owned by ethnic or racial minorities. Y for a minority-owned frim, N for a firm that is not owned by minorities" name="MinorityOwnedInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="The type of minority-owned frim" name="MinorityOwnedType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company is primarily owned by women. Y for a women-owned frim, N for a firm that is not primarily owned by women." name="WomanOwnedInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company is considered disadvantaged by the US governement under Title 8A. Y for a Title 8A disadvantaged firm, N for all other firms." name="Disadv8aInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company is considered to be a small business. Y for small businesses, N for all other firms." name="SmallBusInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this company owns or rents its place of business. Lookup of values for rent, own, lease, and so on." name="RentOwnInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Dun and Bradstreet credit rating" name="DbRating" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this is a US federal agency supported by the General Services Administration (GSA). Y for organizations served by the GSA, N for organizations that are not served by the GSA." name="GSAIndicatorFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Taxpayer identification number, often unique identifier of person or organization. Can be SSN or income taxpayer ID in US, fiscal code or NIF in Europe" name="JgzzFiscalCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Fiscal year used as the source for financial information" name="AnalysisFy" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Month that the fiscal year ends for organization" name="FiscalYearendMonth" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Current Fiscal Year Potential Revenue Amount." name="CurrentFiscalYearPotentialRevenueAmount" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization's potential revenue for next fiscal year" name="NextFyPotentialRevenueAmount" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Year that the organization began doing business" name="YearEstablished" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Corporate charter of organization" name="MissionStatement" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not used in Fusion V1" name="OrganizationType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="The physical class of business in which a business participates. For example, local, national, or international." name="BusinessScope" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Taxation classification for corporation entities. For example, Chapter S in the US." name="CorporationClass" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup that represents most common business identifier in a country. For example, Chamber of Commerce Number in Italy, Government Registration Number in Taiwan." name="LocalBusIdenType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Primary identifier assigned to businesses by government agency, Chamber of Commerce, or other authority. Generally used outside US." name="LocalBusIdentifier" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization's default currency code." name="PreferredFunctionalCurrency" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup for type of registration, such as nonprofit." name="RegistrationType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Total number of personnel employeed if can not be mapped to numeric field." name="TotalEmployeesText" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup that indicates whether subsidiaries are included in the calculation of total employees A for totals without subsidiaries, B for totals with subsidiaries." name="TotalEmployeesInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup that indicates whether the employee total is estimated. A for estimated, N for not estimated or actual." name="TotalEmployeesEstimatedIndicator" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup that indicates whether the number is a minimum, maximum, or average number of total employees. A for minimum, B for maximum, and C for average." name="TotalEmployeesMinimumIndicator" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup that indicates if organization is a parent or subsidiary location" name="ParentSubInd" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Year that the business was incorporated" name="IncorpYear" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Who column: indicates the date and time of the last update of the row." name="LastUpdateDate" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Who column: indicates the user who last updated the row." name="LastUpdatedBy" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Who column: indicates the date and time of the creation of the row." name="CreationDate" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Who column: indicates the user who created the row." name="CreatedBy" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Who column: indicates the session login associated to the user who last updated the row." name="LastUpdateLogin" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Enterprise Service Scheduler: indicates the request ID of the job that created or last updated the row." name="RequestId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="ContentSourceNumber" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="EffectiveStartDate" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="EffectiveEndDate" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if the organization is privately owned. Y for a privately owned organization, N for a publicly owned organization." name="PublicPrivateOwnershipFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Local activity classification code type identifier" name="LocalActivityCodeType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Local activity classification code" name="LocalActivityCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Number of employees at the referenced address" name="EmployeesAtPrimaryAddress" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Number of employees at the referenced address which cannot be mapped to a number" name="EmployeesAtPrimaryAddressText" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Qualifies calculation of employees at the primary address as estimated" name="EmployeesAtPrimaryAddressEstimation" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Qualifies calculation of employees at the primary address as minimum" name="EmployeesAtPrimaryAddressMinimum" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if this is an internal organization. Y for internal, N for external. Defaulted to N." name="InternalFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Total number of payment experiences" name="TotalPaymentAmount" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Dun and Bradstreet does not maintain data for the branch offices of companies that are located outside of North America. Data is only maintained for the company's headquarters. If the data pertains only to a company's headquarters, this column stores the headquarter's PARTY_ID. If the data pertains to a branch office, this column stores the branch's PARTY_ID." name="DisplayedDUNSPartyIdentifier" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="Status" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Dun and Bradstreet Business Information Report" name="BusinessReport" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="DUNS_NUMBER in VARCHAR format. Column value not restricted to nine digit DUNS Number." name="DUNSNumberC" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="TCA Who column" name="CreatedByModule" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Stores bank number for banks and branch number for bank branches, primarily ABA number for US bank branches." name="BankOrBranchNumber" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Identifies bank in several countries, typically for regulatory purposes." name="BankCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Identifies bank branch in several countries, typically for regulatory purposes." name="BranchCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates existence of similarly named business." name="DoNotConfuseWith" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Home country associated with the party." name="HomeCountry" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Growth Strategy Description." name="GrowthStrategyDescription" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Location of account - optional part of User Primary Key" name="SeblUserKeyLoc" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Corporate Stock Symbol, e.g. ORCL" name="StockSymbol" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="One column to store the FSIO related trading partner codes. This column will store alpha numeric values. This column will also take care of the &quot;Fed vs Non-Fed&quot; attribute requirement." name="TradingPartnerIdentifier" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="OrigSystem" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="OrigSystemReference" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="EffectiveSequence" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Corporate charter of organization" name="Comments" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Not Used." name="EffectiveLatestChange" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Size of an organization based on revenue, number of employees etc." name="OrganizationSize" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="This attribute will have Y if the suffix is overridden by user and N if not. Default value is N." name="SuffixOverriddenFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Name as captured by the users to internally identify the organization." name="UniqueNameAlias" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Captures system generated or manually overridden suffix." name="UniqueNameSuffix" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="DUNS Number for the Domestic Ultimate, which is the hieghest family member in the same country as this business entity. A subject may be its own Domestic Ultimate." name="DomesticUltimateDUNSNumberC" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="DUNS Number for the Global Ultimate, which is the highest family member in the same country as this business entity as you walk up this branch of the tree. A case may be its own ultimate." name="GlobalUltimateDUNSNumberC" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Parent is a corporation that owns more than 50% of another corporation's capital stock. The parent company can also be a subsidiary of another corporation. If the parent also has branches, then it is a headquarters as well as being a parent company. A headquarters is a business establishment that has branches or divisions reporting to it, and is financially responsible for those branches or divisions. If the headquarters has more than 50% of capital stock owned by anothe corporation, it also will be a subsidiary. If it owns more than 50% of capital stock of another corporation, then it is also a parent." name="ParentDUNSNumberC" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Corporate Currency Code This attribute is used by CRM Extensibility framework" name="CorpCurrencyCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Currency Conversion Rate Type This attribute is used by CRM Extensibility framework" name="CurcyConvRateType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Currency Code This attribute is used by CRM Extensibility framework" name="CurrencyCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Unique identification number for this party" name="PartyNumber" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Certification level for an organization party. HZ_PARTY_CERT_LEVEL lookup type" name="CertificationLevel" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Reason for organization party's current certification level assignment. HZ_PARTY_CERT_REASON lookup type" name="CertReasonCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="How an organization prefers to be contacted. Validated against lookup HZ_PREFERRED_CONTACT_METHOD." name="PreferredContactMethod" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Person PARTY_ID of a preferred contact for a given party. There should be a valid relationship." name="PreferredContactPersonId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Name of the primary contact person of the organization" name="PreferredContactName" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="E-mail address of the primary contact person of the organization" name="PreferredContactEmailAddress" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Formatted Phone Number of the primary contact person of the organization" name="PreferredContactFormattedPhoneNumber" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="First line of the Identifying address" name="PrimaryAddressLine1" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Second line of the Identifying address" name="PrimaryAddressLine2" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Third line of the Identifying address" name="PrimaryAddressLine3" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Fourth line of the Identifying address" name="PrimaryAddressLine4" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization alias name." name="Alias" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="City of the Identifying address" name="PrimaryAddressCity" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="The country listed in the TERRITORY_CODE column of the FND_TERRITORY table. for the Identifying address." name="PrimaryAddressCountry" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="County of the Identifying address" name="PrimaryAddressCounty" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="E-mail address of the organization" name="PrimaryEmailAddress" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization primary telephone number formatted in the local format." name="PrimaryFormattedPhoneNumber" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Unique identifier of the location of the identifying address" name="IdenAddrLocationId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Unique identifier of the party site of the identifying address" name="IdenAddrPartySiteId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Standard name for a language" name="PrimaryLanguage" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="This is the derived column. For Organization, it is concatenation of unique_name_alias and suffix. For Person, this is concatenation of person_name and suffix." name="PartyUniqueName" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Postal Code of the Identifying address" name="PrimaryAddressPostalCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Denormalization of the PARTY_NAME field in the HZ_ADDTNL_PARTY_NAMES row identified by PREFERRED_NAME_ID." name="PreferredName" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Foreign Key to HZ_ADDTNL_PARTY_NAMES.PARTY_NAME_ID. If not NULL contains the ID of the overall Preferred Name for the Party. If NULL the Profile Name (i.e. the name contained in the profile) will be used as overall Preferred name. By default the value is NULL" name="PreferredNameId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization primary E-mail contact point ID." name="PrimaryEmailId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="The area code within a country code" name="PrimaryPhoneAreaCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization primary contact point phone ID." name="PrimaryPhoneId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="International country code for a telephone number. For example, 33 for France" name="PrimaryPhoneCountryCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Additional number addressed after initial connection to an internal telephone system" name="PrimaryPhoneExtension" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Lookup code for the type of phone line. For example, general, fax, inbound or outbound" name="PrimaryPhoneLineType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="A telephone number formatted in local format. The number should not include country code, area code, or extension" name="PrimaryPhoneNumber" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Contact point type, such as business or personal" name="PrimaryPhonePurpose" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Unique Identifier of the primary uniform resource locator" name="PrimaryWebId" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organization Pronunciation" name="Pronunciation" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Province of the Identifying address" name="PrimaryAddressProvince" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Standard Industry Classification (SIC) code" name="SICCode" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Version of Standard Industry Classification (SIC) code" name="SICCodeType" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="State of the Identifying address" name="PrimaryAddressState" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Uniform resource locator" name="PrimaryURL" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Indicates if the party was validated. Y for a validated party, N for a party that is not validated." name="ValidatedFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Tracks if a party has a direct relationship with the organization using Oracle Receivables or through a third party vendor. Y for a third party relationship, N for a direct relationship. If Oracle Service is installed, the Third Party field in the Customers window is mandatory." name="ThirdPartyFlag" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="The Source System that last updated this record." name="LastUpdateSourceSystem" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Date on which the record was last updated by the source system." name="LastSourceUpdateDate" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Specifies the enrichment status of the person." name="DataCloudStatus" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Specifies date this person was last enriched in DaaS." name="LastEnrichmentDate" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Organizaton Information" name="OrgInformation" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="RenewalWithCompetitor_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="CurrentProvider_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="WorkersCompRenewal_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="CurrentMedicalCarrier_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="MedicalRenewal_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="AccountIndustry_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="CapitalMarketsInvolvement_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="CREATED_BY_MIGRATION" name="Priority_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+        <oer:attribute description="Previous Sales Office" name="SalesOffice_c" xmlns:oer="http://xmlns.oracle.com/oer" />
+      </oer:attributes>
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="OrganizationProfile">
+    <xsd:annotation>
+      <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+        <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+          <attribute>OrganizationProfileId</attribute>
+        </key>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element sdoXML:dataType="sdoJava:LongObject" minOccurs="0" name="OrganizationProfileId" type="xsd:long" />
+      <xsd:element sdoXML:dataType="sdoJava:LongObject" minOccurs="0" name="PartyId" type="xsd:long" />
+      <xsd:element minOccurs="0" name="OrganizationName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EnquiryDUNS" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CeoName" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CeoTitle" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrincipalName" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrincipalTitle" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LegalStatus" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ControlYr" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="EmployeesTotal" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="HQBranchIndicator" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BranchFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="OobInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LineOfBusiness" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CongDistCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ImportInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ExportInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LaborSurplusInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="MinorityOwnedInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="MinorityOwnedType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="WomanOwnedInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Disadv8aInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SmallBusInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RentOwnInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DbRating" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="GSAIndicatorFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="JgzzFiscalCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="AnalysisFy" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="FiscalYearendMonth" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurrentFiscalYearPotentialRevenueAmount" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="NextFyPotentialRevenueAmount" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="YearEstablished" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="MissionStatement" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OrganizationType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BusinessScope" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CorporationClass" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LocalBusIdenType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LocalBusIdentifier" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredFunctionalCurrency" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RegistrationType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="TotalEmployeesText" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="TotalEmployeesInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="TotalEmployeesEstimatedIndicator" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="TotalEmployeesMinimumIndicator" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ParentSubInd" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="IncorpYear" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="LastUpdateDate" type="ns0:dateTime-Timestamp" />
+      <xsd:element minOccurs="0" name="LastUpdatedBy" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CreationDate" type="ns0:dateTime-Timestamp" />
+      <xsd:element minOccurs="0" name="CreatedBy" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LastUpdateLogin" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RequestId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="ContentSourceNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EffectiveStartDate" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="EffectiveEndDate" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="PublicPrivateOwnershipFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="LocalActivityCodeType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LocalActivityCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EmployeesAtPrimaryAddress" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EmployeesAtPrimaryAddressText" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EmployeesAtPrimaryAddressEstimation" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EmployeesAtPrimaryAddressMinimum" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="InternalFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="TotalPaymentAmount" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="DisplayedDUNSPartyIdentifier" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="Status" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BusinessReport" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="DUNSNumberC" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CreatedByModule" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BankOrBranchNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BankCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="BranchCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DoNotConfuseWith" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="HomeCountry" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="GrowthStrategyDescription" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SeblUserKeyLoc" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="StockSymbol" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="TradingPartnerIdentifier" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OrigSystem" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OrigSystemReference" nillable="true" type="xsd:string" />
+      <xsd:element sdoXML:dataType="sdoJava:IntObject" minOccurs="0" name="EffectiveSequence" type="xsd:int" />
+      <xsd:element minOccurs="0" name="Comments" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EffectiveLatestChange" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OrganizationSize" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SuffixOverriddenFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="UniqueNameAlias" type="xsd:string" />
+      <xsd:element minOccurs="0" name="UniqueNameSuffix" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DomesticUltimateDUNSNumberC" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="GlobalUltimateDUNSNumberC" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ParentDUNSNumberC" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CorpCurrencyCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurcyConvRateType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurrencyCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PartyNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CertificationLevel" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CertReasonCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredContactMethod" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredContactPersonId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="PreferredContactName" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredContactEmailAddress" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredContactFormattedPhoneNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressLine1" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressLine2" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressLine3" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressLine4" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Alias" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressCity" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressCountry" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressCounty" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryEmailAddress" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryFormattedPhoneNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="IdenAddrLocationId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="IdenAddrPartySiteId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="PrimaryLanguage" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PartyUniqueName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressPostalCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredName" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PreferredNameId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="PrimaryEmailId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="PrimaryPhoneAreaCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryPhoneId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="PrimaryPhoneCountryCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryPhoneExtension" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryPhoneLineType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryPhoneNumber" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryPhonePurpose" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryWebId" nillable="true" type="xsd:long" />
+      <xsd:element minOccurs="0" name="Pronunciation" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressProvince" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SICCode" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SICCodeType" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryAddressState" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryURL" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ValidatedFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="ThirdPartyFlag" nillable="true" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="LastUpdateSourceSystem" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LastSourceUpdateDate" nillable="true" type="ns0:dateTime-Timestamp" />
+      <xsd:element minOccurs="0" name="DataCloudStatus" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="LastEnrichmentDate" nillable="true" type="ns0:date-Date" />
+      <xsd:element sdoXML:dataType="sdo:DataObject" minOccurs="0" name="OrgInformation" type="ns1:OrganizationInformation" />
+      <xsd:element minOccurs="0" name="RenewalWithCompetitor_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurrentProvider_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="WorkersCompRenewal_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurrentMedicalCarrier_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="MedicalRenewal_c" nillable="true" type="xsd:string" />
+      <xsd:element sdoXML:dataType="sdoJava:BooleanObject" minOccurs="0" name="Protected_c" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="InsperityPEORenewalDate_c" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="AccountIndustry_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CreditScore_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SalesVolume_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element minOccurs="0" name="FEIN_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SalesgenieID_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SICCodeDescription_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="PrimaryNAICSCode_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryNAICSCodeDescription_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="MissionStatement_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="YearEstablished_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ClientsDemographics_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="PrimaryProductAndorService_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CompanyResearchNewsAnnouncemen_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="AffiliatedWithAnyOtherCompany_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="IndustryResearchNewsChallenges_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="WhereIsTheCompanyHeadquartersL_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="ProspectsCompetitors_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="ExternalCreatedDate_c" nillable="true" type="ns0:date-Date" />
+      <xsd:element minOccurs="0" name="CapitalMarketsInvolvement_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EstimatedPayrollAndBenefitsExp_c" nillable="true" type="ns0:AmountType" />
+      <xsd:element sdoXML:dataType="sdoJava:BooleanObject" minOccurs="0" name="DoNotContact_c" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="SalesNumber_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CurrentAccountingSystem_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="SDR_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Notes_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="ExternalUniqueID_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Philanthropy_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="Priority_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CompanyDBA_c" nillable="true" type="ns0:base64Binary-DataHandler" />
+      <xsd:element minOccurs="0" name="CompanySizeNumberOfEmployees_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="SalesOffice_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Campaign_Id_c" nillable="true" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="Campaign_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="PrimaryOwnerId_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="AccountType_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ProductInterest_c" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ChannelPartnerDiscounts_c" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="organizationProfile" type="OrganizationProfile" />
+</xsd:schema>
